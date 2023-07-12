@@ -1,3 +1,5 @@
+import './App.css';
+
 // Router
 import { Routes, Route } from 'react-router-dom';
 
@@ -14,7 +16,10 @@ import BoardDetail from './views/Board/Detail';
 import BoardWrite from './views/Board/Write';
 import BoardUpdate from './views/Board/Update';
 
-import './App.css';
+// components import
+import BoardListItem from './components/BoardListItem';
+import Top3ListItem from './components/Top3ListItem';
+import CommentListItem from './components/CommentListItem';
 
 // 메인화면 - path: '/' / component : <Main />
 // 로그인 / 회원가입 - path: '/authentication' / component : <Authentication />
@@ -27,6 +32,8 @@ import './App.css';
 function App() {
   return (
     <>
+      <CommentListItem />
+
       {/* Header */}
       <Header />
       

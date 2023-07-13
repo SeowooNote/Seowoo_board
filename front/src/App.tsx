@@ -1,7 +1,7 @@
 import './App.css';
 
 // Router
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 
 // layouts import / src : 절대경로
 import Header from 'src/layouts/Header';
@@ -20,6 +20,10 @@ import BoardUpdate from './views/Board/Update';
 import BoardListItem from './components/BoardListItem';
 import Top3ListItem from './components/Top3ListItem';
 import CommentListItem from './components/CommentListItem';
+import InputBox from './components/InputBox';
+
+// constants import - components 의 InPutBox 에 대한 아이콘
+import { INPUT_ICON } from './constants';
 
 // 메인화면 - path: '/' / component : <Main />
 // 로그인 / 회원가입 - path: '/authentication' / component : <Authentication />
@@ -30,10 +34,12 @@ import CommentListItem from './components/CommentListItem';
 // 게시글 수정 - path : '/board/update/:boardNumber' / component : <BoardUpdate />
 
 function App() {
+
+  // useLocation() : Hooks 함수 / 현재 어디 위치에 있는지 알 수 있음
+  const path = useLocation();
+
   return (
     <>
-      <CommentListItem />
-
       {/* Header */}
       <Header />
       
@@ -67,9 +73,7 @@ function App() {
 
       </Routes>
 
-      {/* Footer */}
-      {/* TODO : authentication 경로일 때는 안보이도록 작업 */}
-      <Footer />
+      {path.pathname !== '/authentication' && (<Footer />)}
     </>
   );
 }

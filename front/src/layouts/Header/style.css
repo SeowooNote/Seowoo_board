@@ -13,6 +13,8 @@
      align-items: center;
 }
 
+.header-left:hover{cursor: pointer;}
+
 .header-left-logo-icon{
      margin: 3px;
 

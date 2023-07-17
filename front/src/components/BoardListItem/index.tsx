@@ -2,11 +2,16 @@ import React from 'react';
 import './style.css';
 import { boardListItemMock } from 'src/mocks';
 import { useNavigate } from 'react-router-dom';
+import { CurrentListResponseDTO } from 'src/interfaces/response';
 
-export default function BoardListItem() {
-  const { boardNumber, boardTitle, boardContent, boardImage } = boardListItemMock;
-  const { writerProfileImage, writerNickName, writeDate } = boardListItemMock;
-  const { commentCount, likeCount, viewCount } = boardListItemMock;
+interface Props{
+  item: CurrentListResponseDTO;
+}
+
+export default function BoardListItem({ item }: Props) {
+  const { boardNumber, boardTitle, boardContent, boardImage } = item;
+  const { writerProfileImage, writerNickName, writeDate } = item;
+  const { commentCount, likeCount, viewCount } = item;
 
   // useNavigate() : 자바스크립트 로직 중에 페이지 이동을 시켜주는 훅 함수 (Hooks)
   const navigator = useNavigate();

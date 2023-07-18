@@ -72,11 +72,101 @@ export const currentBoardListMock = [
           commentCount: 2,
           likeCount: 28,
           viewCount: 64
-     },
+     }
 
 ];
 
-export const popularWordList = ['해피', 'ㅠㅡㅠ', '까망', '고양이', '바나나'];
+export const currentSearchListMock = [
+     {
+          boardNumber: 1,
+          writerProfileImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUIS_faBipfftNCV-46OYoT_GakMXV0mpc5g&usqp=CAU',
+          writerNickName: '바나나 캣',
+          writeDate: '2023. 07. 12',
+          boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
+          commentCount: 18,
+          likeCount: 12,
+          viewCount: 22
+     },
+     {
+          boardNumber: 2,
+          writerProfileImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUIS_faBipfftNCV-46OYoT_GakMXV0mpc5g&usqp=CAU',
+          writerNickName: '바나나 캣',
+          writeDate: '2023. 07. 12',
+          boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
+          commentCount: 11,
+          likeCount: 8,
+          viewCount: 3
+     },
+     {
+          boardNumber: 3,
+          writerProfileImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUIS_faBipfftNCV-46OYoT_GakMXV0mpc5g&usqp=CAU',
+          writerNickName: '바나나 캣',
+          writeDate: '2023. 07. 12',
+          boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
+          commentCount: 12,
+          likeCount: 18,
+          viewCount: 28
+     },
+     {
+          boardNumber: 4,
+          writerProfileImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUIS_faBipfftNCV-46OYoT_GakMXV0mpc5g&usqp=CAU',
+          writerNickName: '바나나 캣',
+          writeDate: '2023. 07. 12',
+          boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
+          commentCount: 19,
+          likeCount: 19,
+          viewCount: 29
+     },
+     {
+          boardNumber: 5,
+          writerProfileImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUIS_faBipfftNCV-46OYoT_GakMXV0mpc5g&usqp=CAU',
+          writerNickName: '바나나 캣',
+          writeDate: '2023. 07. 12',
+          boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
+          commentCount: 2,
+          likeCount: 28,
+          viewCount: 64
+     },
+     {
+          boardNumber: 1,
+          writerProfileImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUIS_faBipfftNCV-46OYoT_GakMXV0mpc5g&usqp=CAU',
+          writerNickName: '바나나 캣',
+          writeDate: '2023. 07. 12',
+          boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
+          commentCount: 18,
+          likeCount: 12,
+          viewCount: 22
+     },
+     {
+          boardNumber: 2,
+          writerProfileImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUIS_faBipfftNCV-46OYoT_GakMXV0mpc5g&usqp=CAU',
+          writerNickName: '바나나 캣',
+          writeDate: '2023. 07. 12',
+          boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
+          commentCount: 11,
+          likeCount: 8,
+          viewCount: 3
+     }
+
+];
+
+export const popularWordListMock = ['해피', 'ㅠㅡㅠ', '까망', '고양이', '바나나'];
+
+export const relationWordListMock = ['해피', 'ㅠㅡㅠ', '까망', '고양이', '바나나'];
 
 // Top3ListItem mock(임시) 데이터
 export const top3ListItemMock = {

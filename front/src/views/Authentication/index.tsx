@@ -9,9 +9,6 @@ import { useNavigate } from 'react-router-dom';
 // Daum 우편번호 검색 서비스 import
 import { useDaumPostcodePopup, Address } from 'react-daum-postcode';
 
-
-
-
 export default function Authentication() {
   const [view, setView] = useState<'sign-in' | 'sign-up'>('sign-in');
 

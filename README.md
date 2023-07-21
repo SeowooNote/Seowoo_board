@@ -7,7 +7,7 @@
 |**components**|최소 단위의 기능들 모음|
 |**layouts**|Header, Footer 관련 레이아웃|
 |**views**|실제로 화면에 보여주는 단위 모음|
-|**assets**|views 에서 보여주는 것|
+|**assets**|views 에서 보여주는 것(이미지)|
 |**constants**|전역에서 사용하는 상수들 모음|
 |**stores**|상태관리 모음|
 |**utils**|전역으로 사용하는 함수들 모음|
@@ -31,6 +31,11 @@
 
 |**views**|**세부 폴더**|**설명**|
 |--|--|--|
+||**Authentication**|로그인 및 회원가입 화면
+||**Board**|게시물 관련 화면
+||**Main**|메인 화면
+||**Mypage**|마이 페이지 화면
+||**Search**|검색 관련 화면
 
 |**assets**|**세부 폴더**|**설명**|
 |--|--|--|
@@ -42,6 +47,6 @@
 |--|--|--|
 
 # To-do
-[] authentication 경로일 때는 안보이도록 작업<br />
+authentication 경로일 때는 안보이도록 작업<br />
 완료<br />
-[] mocks 의 commentListItem 에서 writeTime 을 실제 시간을 반영하도록 작업
+mocks 의 commentListItem 에서 writeTime 을 실제 시간을 반영하도록 작업

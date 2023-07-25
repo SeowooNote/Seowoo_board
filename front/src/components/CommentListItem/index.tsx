@@ -1,9 +1,14 @@
 import React from 'react';
 import './style.css';
-import { commentListItem } from 'src/mocks';
+import { commentListItemMock } from 'src/mocks';
+import CommentListResponseDto from 'src/interfaces/response/comment-list.reponse.dto';
 
-export default function CommentListItem() {
-  const { boardNumber, writerProfileImage, writerNickName, writeTime, comment } = commentListItem;
+interface Props {
+  item: CommentListResponseDto;
+}
+
+export default function CommentListItem({ item } : Props) {
+  const { writerProfileImage, writerNickName, writeTime, comment } = commentListItemMock;
 
   return (
     <div className="comment-list-item-box">

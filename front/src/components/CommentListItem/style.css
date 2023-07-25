@@ -1,6 +1,6 @@
 .comment-list-item-box{
+     display: inline-block;
      margin: 15px 0px;
-     /* box-sizing: border-box; */
 }
 
 /* 댓글 작성자 정보 영역 */

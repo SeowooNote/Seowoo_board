@@ -107,7 +107,10 @@
      font-weight: 700;
 }
 
-.my-page-bottom-container{display: flex;}
+.my-page-bottom-container{
+     margin-bottom: 40px;
+     display: flex;
+}
 
 .my-page-bottom-board-list{
      flex: 8;

@@ -50,3 +50,40 @@
 authentication 경로일 때는 안보이도록 작업<br />
 완료<br />
 mocks 의 commentListItem 에서 writeTime 을 실제 시간을 반영하도록 작업
+
+
+# 정리
+1. react
+2. react-r
+3. interface
+4. hook & store
+5. comp
+6. util
+7. mock
+8. constant
+9. 기타
+
+# state 순서
+1. 라이브러리관련 상태
+2. useRef
+3. useParams
+4. useStore
+5. useHook
+6. props
+7. useState
+
+# event handler 순서
+1. changeEvent
+2. clickEvent
+
+# effect 순서
+1. scope의 갯수(오름차순)
+2.
+3.
+
+# useNavigate
+# useState
+# useEffect
+# useParams
+# map
+

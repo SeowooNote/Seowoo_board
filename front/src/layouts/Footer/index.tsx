@@ -1,7 +1,20 @@
-import React from 'react';
 import './style.css';
 
+//              component                //
+// description : Footer 레이아웃 컴포넌트 //
 export default function Footer() {
+
+  // state //
+
+  // function // 
+
+  // event handler //
+
+  // component //
+
+  // effect //
+
+  // render //
   return (
     <div id='footer-box'>
         <div className='footer-top'>

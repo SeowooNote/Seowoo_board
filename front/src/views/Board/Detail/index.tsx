@@ -1,22 +1,26 @@
-import React, { useState, useEffect, ChangeEvent } from 'react';
-import './style.css';
-import { BoardDetailResponseDto } from 'src/interfaces/response';
+import { useState, useEffect, ChangeEvent } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+
+import { BoardDetailResponseDto, LikeListResponseDto, CommentListResponseDto } from 'src/interfaces/response';
 import { boardDetailMock, commentListMock, likeListMock } from 'src/mocks';
-import { useAsyncError, useParams } from 'react-router-dom';
-import LikeListResponseDto from 'src/interfaces/response/like-list.response.dto';
-import CommentListItem from 'src/components/CommentListItem';
-import CommentListResponseDto from 'src/interfaces/response/comment-list.reponse.dto';
-import Pagination from 'src/components/Pagination';
 import { usePagination } from 'src/hooks';
+import { useUserStore } from 'src/stores';
+import CommentListItem from 'src/components/CommentListItem';
+import Pagination from 'src/components/Pagination';
 import { COUNT_BY_PAGE_COMMENT } from 'src/constants';
 
-//            component            //
+import './style.css';
+
+//            component          //
 // description : 게시물 상세 화면 //
 export default function BoardDetail() {
+
   //              state             //
   // description : 게시물 번호 상태  //
   const { boardNumber } = useParams();
-  // description : //
+  // description : 로그인 유지 정보 상태 //
+  const { user } = useUserStore();
+  // description : 페이지네이션 관련 상태 및 함수 //
   const { totalPage, currentPage, currentSection, onPageClickHandler, onPreviousClickHandler, onNextClickHandler, changeSection } = usePagination();
   // description : 게시물 정보 상태  //
   const [board, setBoard] = useState<BoardDetailResponseDto | null>(null);
@@ -31,7 +35,9 @@ export default function BoardDetail() {
   // description : 댓글 리스트 컴포넌트 출력 상태 //
   const [showCommentList, setShowCommentList] = useState<boolean>(false);
 
-  //                    function                     //
+  //                    function                   //
+  // description : 페이지 이동을 위한 네비게이트 함수 //
+  const navigator = useNavigate();
   // description : 현재 페이지의 댓글 리스트 분류 함수 //
   const getPageCommentList = () => {
     const lastIndex = commentListMock.length > COUNT_BY_PAGE_COMMENT * currentPage ?
@@ -43,7 +49,7 @@ export default function BoardDetail() {
 
   // event handler //
 
-  // component //
+  //            component              //
   // description : 실제 게시물 컴포넌트 //
   const Board = () => {
     //               state              //
@@ -61,6 +67,15 @@ export default function BoardDetail() {
     const onMoreButtonClickHandler = () => {
       setOpenMore(!openMore);
     }
+    // description : 수정 버튼 클릭 이벤트 //
+    const onUpdateButtonClickHandler = () => {
+      navigator(`/board/update/${boardNumber}`);
+    }
+    // description : 삭제 버튼 클릭 이벤트 //
+    const onDeleteButtonClickHandler = () => {
+      alert(`해당 게시물이 삭제되었습니다.`);
+      navigator('/');
+    }
     // description : 좋아요 버튼 클릭 이벤트 //
     const onLikeButtonClickHandler = () => {
       setFavorite(!favorite);
@@ -74,7 +89,19 @@ export default function BoardDetail() {
       setShowCommentList(!showCommentList);
     }
 
-    // effect //
+    //                              effect                         //
+    // description : 좋아요 리스트가 변경되면 실행 //
+    useEffect(() => {
+      const liked = likeList.findIndex((item) => item.likeUserEmail === user?.email);
+      setFavorite(liked ! == -1);
+    }, [likeList]);
+    // description : 게시물 번호 혹은 로그인 유저 정보가 변경되면 실행 //
+    useEffect(() => {
+      setViewMore(user?.email === board?.writerEmail);
+      const liked = likeList.findIndex((item) => item.likeUserEmail === user?.email);
+      setFavorite(liked ! == -1);
+    }, [boardNumber, user]);
+    
 
     // render //
     return(
@@ -93,9 +120,9 @@ export default function BoardDetail() {
             <div className="board-detail-meta-right">
               {openMore && (
                 <div className="more-button-group">
-                  <div className="more-button">수정</div>
+                  <div className="more-button" onClick={onUpdateButtonClickHandler}>수정</div>
                   <div className="divider"></div>
-                  <div className="more-button-red">삭제</div>
+                  <div className="more-button-red" onClick={onDeleteButtonClickHandler}>삭제</div>
                 </div>
               )}
               {viewMore && (
@@ -137,8 +164,21 @@ export default function BoardDetail() {
       </div>
     );
   }
+  //              Component             //
   // description : 좋아요 리스트 컴포넌트 //
   const LikeList = () => {
+
+    // state //
+
+    // function //
+
+    // event handler //
+
+    // component //
+
+    // effect //
+
+    // render //
     return(
       <div className='like-list-box'>
         <div className="like-list-title">좋아요 <span className='like-list-title-emphasis'>{likeList.length}</span></div>
@@ -153,19 +193,27 @@ export default function BoardDetail() {
       </div>
     );
   }
+  //          component         //
   // description : 댓글 컴포넌트 //
   const Comments = () => {
-    // state //
+
+    //                 state              //
     // description : 사용자 댓글 입력 상태 //
     const [comment, setComment] = useState<string>('');
+
+    // function //
 
     // event handler //
     // description: 사용자 댓글 입력 변경 이벤트 //
     const onCommentChangeHandler = (event: ChangeEvent<HTMLTextAreaElement>) => {
       setComment(event.target.value);
     }
-    
 
+    // component //
+    
+    // effect //
+
+    // render //
     return(
       <div className='comment-list-box'>
         <div className="comment-list-top">

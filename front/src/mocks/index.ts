@@ -1,3 +1,9 @@
+export const userMock = {
+     email: 'email@email.com',
+     nickname: '해피 캣',
+     profileImage: 'https://i.namu.wiki/i/w4RblNYVNcaS8yG-U7q5BOKoSBGOwCnY2yO0WCMDNkn69zWwmth_T0MFv13lW9v8DUulACIwH6yLHJaONy2ysw.webp',
+}
+
 // BoardListItem mock(임시) 데이터
 export const boardListItemMock = {
      boardNumber: 1,
@@ -515,3 +521,8 @@ export const likeListMock = [
      }
 ]
 
+export const boardUpdateMock = {
+     boardTitle: '아무거나',
+     boardContent: 'Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum',
+     boardImage: 'https://i.namu.wiki/i/GQXXqhR-rnXPhWHz40mLiih5SSSqTWnm-NgGGEV5hEG4YHRfKcG_NsMDMLzaWW48_N_qiIMuqtzqQsaKnj-f5CBzbblhkMdIOUIHh2HxK3mKiBNg2L-8owbnhFYBqVDxTijPQ_uS4i2U_cKR72iR2g.webp'
+}

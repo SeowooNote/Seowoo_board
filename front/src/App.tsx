@@ -1,5 +1,3 @@
-import './App.css';
-
 // Router
 import { Routes, Route, useLocation } from 'react-router-dom';
 
@@ -25,6 +23,8 @@ import InputBox from './components/InputBox';
 // constants import - components 의 InPutBox 에 대한 아이콘
 import { INPUT_ICON } from './constants';
 
+import './App.css';
+
 // 메인화면 - path: '/' / component : <Main />
 // 로그인 / 회원가입 - path: '/authentication' / component : <Authentication />
 // 검색 - path: '/search/:searchWord' / component : <Search />
@@ -34,10 +34,16 @@ import { INPUT_ICON } from './constants';
 // 게시글 수정 - path : '/board/update/:boardNumber' / component : <BoardUpdate />
 
 function App() {
-
+  //              state             //
+  // description : 현재 페이지 url 상태
+  const { pathname } = useLocation();
   // useLocation() : Hooks 함수 / 현재 어디 위치에 있는지 알 수 있음
-  const path = useLocation();
 
+  // function //
+
+  // effect //
+
+  // render //
   return (
     <>
       {/* Header */}
@@ -73,7 +79,7 @@ function App() {
 
       </Routes>
 
-      {path.pathname !== '/authentication' && (<Footer />)}
+      { pathname !== '/authentication' && (<Footer />) }
     </>
   );
 }

@@ -9,7 +9,7 @@ import Footer from 'src/layouts/Footer';
 import Main from './views/Main';
 import Authentication from './views/Authentication';
 import Search from './views/Search';
-import MyPage from './views/MyPage';
+import UserPage from './views/UserPage';
 import BoardDetail from './views/Board/Detail';
 import BoardWrite from './views/Board/Write';
 import BoardUpdate from './views/Board/Update';
@@ -21,14 +21,14 @@ import CommentListItem from './components/CommentListItem';
 import InputBox from './components/InputBox';
 
 // constants import - components 의 InPutBox 에 대한 아이콘
-import { INPUT_ICON } from './constants';
+import { AUTHENTICATION_PATH, BOARD_NUMBER_PATH_VARIABLE, BOARD_PATH, DETAIL_PATH, INPUT_ICON, MAIN_PATH, SEARCH_PATH, SEARCH_WORD_PATH_VARIABLE, UPDATE_PATH, USER_EMAIL_PATH_VARIABLE, USER_PAGE_PATH, WRITE_PATH } from './constants';
 
 import './App.css';
 
 // 메인화면 - path: '/' / component : <Main />
 // 로그인 / 회원가입 - path: '/authentication' / component : <Authentication />
 // 검색 - path: '/search/:searchWord' / component : <Search />
-// 마이페이지 - path : '/my-page' / component : <MyPage />
+// 마이페이지 - path : '/user-page/:userEmail' / component : <UserPage />
 // 게시글 상세 페이지 - path : '/board/detail/:boardNumber' / component : <BoardDetail />
 // 게시글 작성 - path : '/board/write' / component : <BoardWrite />
 // 게시글 수정 - path : '/board/update/:boardNumber' / component : <BoardUpdate />
@@ -52,34 +52,34 @@ function App() {
       <Routes>
 
         {/* 메인화면 */}
-        <Route path='/' element={<Main />} />
+        <Route path={MAIN_PATH} element={<Main />} />
 
         {/* 로그인 / 회원가입 */}
-        <Route path='/authentication' element={<Authentication />} />
+        <Route path={AUTHENTICATION_PATH} element={<Authentication />} />
 
         {/* 검색 */}
-        <Route path='/search/:searchWord' element={<Search />} />
+        <Route path={SEARCH_PATH(SEARCH_WORD_PATH_VARIABLE)} element={<Search />} />
 
         {/* 마이페이지 */}
-        <Route path='/my-page' element={<MyPage />} />
+        <Route path={USER_PAGE_PATH(USER_EMAIL_PATH_VARIABLE)} element={<UserPage />} />
 
         {/* 게시글 관련 */}
-        <Route path='/board'>  
+        <Route path={BOARD_PATH}>  
 
           {/* 게시글 상세 페이지 */}
-          <Route path='detail/:boardNumber' element={<BoardDetail />} />
+          <Route path={DETAIL_PATH(BOARD_NUMBER_PATH_VARIABLE)} element={<BoardDetail />} />
 
           {/* 게시글 작성 */}
-          <Route path='write' element={<BoardWrite />} />
+          <Route path={WRITE_PATH} element={<BoardWrite />} />
 
           {/* 게시글 수정 */}
-          <Route path='update/:boardNumber' element={<BoardUpdate />} />
+          <Route path={UPDATE_PATH(BOARD_NUMBER_PATH_VARIABLE)} element={<BoardUpdate />} />
 
         </Route>
 
       </Routes>
 
-      { pathname !== '/authentication' && (<Footer />) }
+      { pathname !== AUTHENTICATION_PATH && (<Footer />) }
     </>
   );
 }

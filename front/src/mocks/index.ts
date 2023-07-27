@@ -11,10 +11,10 @@ export const boardListItemMock = {
      writerNickName: '바나나 캣',
      writeDate: '2023. 07. 12',
      boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
-     boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+     boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look favorite readable English.`,
      boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
      commentCount: 12,
-     likeCount: 18,
+     favoriteCount: 18,
      viewCount: 23
 }
 
@@ -25,10 +25,10 @@ export const currentBoardListMock = [
           writerNickName: '바나나 캣',
           writeDate: '2023. 07. 12',
           boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
-          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look favorite readable English.`,
           boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
           commentCount: 18,
-          likeCount: 12,
+          favoriteCount: 12,
           viewCount: 22
      },
      {
@@ -37,10 +37,10 @@ export const currentBoardListMock = [
           writerNickName: '바나나 캣',
           writeDate: '2023. 07. 12',
           boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
-          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look favorite readable English.`,
           boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
           commentCount: 11,
-          likeCount: 8,
+          favoriteCount: 8,
           viewCount: 3
      },
      {
@@ -49,10 +49,10 @@ export const currentBoardListMock = [
           writerNickName: '바나나 캣',
           writeDate: '2023. 07. 12',
           boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
-          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look favorite readable English.`,
           boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
           commentCount: 12,
-          likeCount: 18,
+          favoriteCount: 18,
           viewCount: 28
      },
      {
@@ -61,10 +61,10 @@ export const currentBoardListMock = [
           writerNickName: '바나나 캣',
           writeDate: '2023. 07. 12',
           boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
-          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look favorite readable English.`,
           boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
           commentCount: 19,
-          likeCount: 19,
+          favoriteCount: 19,
           viewCount: 29
      },
      {
@@ -73,10 +73,10 @@ export const currentBoardListMock = [
           writerNickName: '바나나 캣',
           writeDate: '2023. 07. 12',
           boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
-          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look favorite readable English.`,
           boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
           commentCount: 2,
-          likeCount: 28,
+          favoriteCount: 28,
           viewCount: 64
      }
 
@@ -89,10 +89,10 @@ export const currentSearchListMock = [
           writerNickName: '바나나 캣',
           writeDate: '2023. 07. 12',
           boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
-          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look favorite readable English.`,
           boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
           commentCount: 18,
-          likeCount: 12,
+          favoriteCount: 12,
           viewCount: 22
      },
      {
@@ -101,10 +101,10 @@ export const currentSearchListMock = [
           writerNickName: '바나나 캣',
           writeDate: '2023. 07. 12',
           boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
-          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look favorite readable English.`,
           boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
           commentCount: 11,
-          likeCount: 8,
+          favoriteCount: 8,
           viewCount: 3
      },
      {
@@ -113,10 +113,10 @@ export const currentSearchListMock = [
           writerNickName: '바나나 캣',
           writeDate: '2023. 07. 12',
           boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
-          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look favorite readable English.`,
           boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
           commentCount: 12,
-          likeCount: 18,
+          favoriteCount: 18,
           viewCount: 28
      },
      {
@@ -125,10 +125,10 @@ export const currentSearchListMock = [
           writerNickName: '바나나 캣',
           writeDate: '2023. 07. 12',
           boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
-          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look favorite readable English.`,
           boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
           commentCount: 19,
-          likeCount: 19,
+          favoriteCount: 19,
           viewCount: 29
      },
      {
@@ -137,10 +137,10 @@ export const currentSearchListMock = [
           writerNickName: '바나나 캣',
           writeDate: '2023. 07. 12',
           boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
-          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look favorite readable English.`,
           boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
           commentCount: 2,
-          likeCount: 28,
+          favoriteCount: 28,
           viewCount: 64
      },
      {
@@ -149,10 +149,10 @@ export const currentSearchListMock = [
           writerNickName: '바나나 캣',
           writeDate: '2023. 07. 12',
           boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
-          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look favorite readable English.`,
           boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
           commentCount: 18,
-          likeCount: 12,
+          favoriteCount: 12,
           viewCount: 22
      },
      {
@@ -161,10 +161,10 @@ export const currentSearchListMock = [
           writerNickName: '바나나 캣',
           writeDate: '2023. 07. 12',
           boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
-          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look favorite readable English.`,
           boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
           commentCount: 11,
-          likeCount: 8,
+          favoriteCount: 8,
           viewCount: 3
      }
 ];
@@ -176,10 +176,10 @@ export const searchBoardListMock = [
           writerNickName: '바나나 캣',
           writeDate: '2023. 07. 12',
           boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
-          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look favorite readable English.`,
           boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
           commentCount: 18,
-          likeCount: 12,
+          favoriteCount: 12,
           viewCount: 22
      },
      {
@@ -188,10 +188,10 @@ export const searchBoardListMock = [
           writerNickName: '바나나 캣',
           writeDate: '2023. 07. 12',
           boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
-          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look favorite readable English.`,
           boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
           commentCount: 11,
-          likeCount: 8,
+          favoriteCount: 8,
           viewCount: 3
      },
      {
@@ -200,10 +200,10 @@ export const searchBoardListMock = [
           writerNickName: '바나나 캣',
           writeDate: '2023. 07. 12',
           boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
-          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look favorite readable English.`,
           boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
           commentCount: 12,
-          likeCount: 18,
+          favoriteCount: 18,
           viewCount: 28
      },
      {
@@ -212,10 +212,10 @@ export const searchBoardListMock = [
           writerNickName: '바나나 캣',
           writeDate: '2023. 07. 12',
           boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
-          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look favorite readable English.`,
           boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
           commentCount: 19,
-          likeCount: 19,
+          favoriteCount: 19,
           viewCount: 29
      },
      {
@@ -224,10 +224,10 @@ export const searchBoardListMock = [
           writerNickName: '바나나 캣',
           writeDate: '2023. 07. 12',
           boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
-          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look favorite readable English.`,
           boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
           commentCount: 2,
-          likeCount: 28,
+          favoriteCount: 28,
           viewCount: 64
      },
      {
@@ -236,10 +236,10 @@ export const searchBoardListMock = [
           writerNickName: '바나나 캣',
           writeDate: '2023. 07. 12',
           boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
-          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look favorite readable English.`,
           boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
           commentCount: 18,
-          likeCount: 12,
+          favoriteCount: 12,
           viewCount: 22
      },
      {
@@ -248,10 +248,10 @@ export const searchBoardListMock = [
           writerNickName: '바나나 캣',
           writeDate: '2023. 07. 12',
           boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
-          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look favorite readable English.`,
           boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
           commentCount: 11,
-          likeCount: 8,
+          favoriteCount: 8,
           viewCount: 3
      }
 ];
@@ -263,10 +263,10 @@ export const myPageBoardListMock = [
           writerNickName: '바나나 캣',
           writeDate: '2023. 07. 12',
           boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
-          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look favorite readable English.`,
           boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
           commentCount: 18,
-          likeCount: 12,
+          favoriteCount: 12,
           viewCount: 22
      },
      {
@@ -275,10 +275,10 @@ export const myPageBoardListMock = [
           writerNickName: '바나나 캣',
           writeDate: '2023. 07. 12',
           boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
-          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look favorite readable English.`,
           boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
           commentCount: 11,
-          likeCount: 8,
+          favoriteCount: 8,
           viewCount: 3
      },
      {
@@ -287,10 +287,10 @@ export const myPageBoardListMock = [
           writerNickName: '바나나 캣',
           writeDate: '2023. 07. 12',
           boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
-          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look favorite readable English.`,
           boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
           commentCount: 12,
-          likeCount: 18,
+          favoriteCount: 18,
           viewCount: 28
      },
      {
@@ -299,10 +299,10 @@ export const myPageBoardListMock = [
           writerNickName: '바나나 캣',
           writeDate: '2023. 07. 12',
           boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
-          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look favorite readable English.`,
           boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
           commentCount: 19,
-          likeCount: 19,
+          favoriteCount: 19,
           viewCount: 29
      },
      {
@@ -311,10 +311,10 @@ export const myPageBoardListMock = [
           writerNickName: '바나나 캣',
           writeDate: '2023. 07. 12',
           boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
-          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look favorite readable English.`,
           boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
           commentCount: 2,
-          likeCount: 28,
+          favoriteCount: 28,
           viewCount: 64
      },
      {
@@ -323,10 +323,10 @@ export const myPageBoardListMock = [
           writerNickName: '바나나 캣',
           writeDate: '2023. 07. 12',
           boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
-          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look favorite readable English.`,
           boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
           commentCount: 18,
-          likeCount: 12,
+          favoriteCount: 12,
           viewCount: 22
      },
      {
@@ -335,10 +335,10 @@ export const myPageBoardListMock = [
           writerNickName: '바나나 캣',
           writeDate: '2023. 07. 12',
           boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
-          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look favorite readable English.`,
           boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
           commentCount: 11,
-          likeCount: 8,
+          favoriteCount: 8,
           viewCount: 3
      }
 ];
@@ -357,7 +357,7 @@ export const top3ListItemMock = {
      boardContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.`,
      boardImage: 'https://media.tenor.com/9h6Db9JmjAwAAAAC/maxwell-cat.gif',
      commentCount: 25,
-     likeCount: 68,
+     favoriteCount: 68,
      viewCount: 123
 }
 
@@ -371,7 +371,7 @@ export const top3ListMock = [
           boardContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.`,
           boardImage: 'https://media.tenor.com/9h6Db9JmjAwAAAAC/maxwell-cat.gif',
           commentCount: 25,
-          likeCount: 68,
+          favoriteCount: 68,
           viewCount: 123
      },
      {
@@ -380,10 +380,10 @@ export const top3ListMock = [
           writerNickName: '바나나 캣',
           writeDate: '2023. 07. 12',
           boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
-          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+          boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look favorite readable English.`,
           boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif',
           commentCount: 12,
-          likeCount: 18,
+          favoriteCount: 18,
           viewCount: 23
      },
      {
@@ -395,7 +395,7 @@ export const top3ListMock = [
           boardContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.`,
           boardImage: 'https://media.tenor.com/fg7GyfURkrYAAAAM/cat-jumping-cat.gif',
           commentCount: 8,
-          likeCount: 9,
+          favoriteCount: 9,
           viewCount: 13
      }
 ]
@@ -473,51 +473,51 @@ export const boardDetailMock = {
      writerEmail: 'email@email.com',
      writeDate: '2023. 07. 12.',
      boardTitle: 'ㅠㅡㅠ;;; ㅠ_ㅠ;;; ㅠㅡㅠ;;;',
-     boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.`,
+     boardContent: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look favorite readable English.`,
      boardImage: 'https://media.tenor.com/xvy_MHiydo8AAAAC/banana-cat-crying-banana-cat.gif'
 }
 
-// views Board detail LikeList mock(임시) 데이터
-export const likeListMock = [
+// views Board detail favoriteList mock(임시) 데이터
+export const favoriteListMock = [
      {    
-          likeUserProfileImage: 'https://i.namu.wiki/i/GQXXqhR-rnXPhWHz40mLiih5SSSqTWnm-NgGGEV5hEG4YHRfKcG_NsMDMLzaWW48_N_qiIMuqtzqQsaKnj-f5CBzbblhkMdIOUIHh2HxK3mKiBNg2L-8owbnhFYBqVDxTijPQ_uS4i2U_cKR72iR2g.webp',
-          likeUserNickname: '맥스웰 캣',
-          likeUserEmail: 'email@email.com'
+          favoriteUserProfileImage: 'https://i.namu.wiki/i/GQXXqhR-rnXPhWHz40mLiih5SSSqTWnm-NgGGEV5hEG4YHRfKcG_NsMDMLzaWW48_N_qiIMuqtzqQsaKnj-f5CBzbblhkMdIOUIHh2HxK3mKiBNg2L-8owbnhFYBqVDxTijPQ_uS4i2U_cKR72iR2g.webp',
+          favoriteUserNickname: '맥스웰 캣',
+          favoriteUserEmail: 'email@email.com'
      },
      {    
-          likeUserProfileImage: 'https://i.namu.wiki/i/GQXXqhR-rnXPhWHz40mLiih5SSSqTWnm-NgGGEV5hEG4YHRfKcG_NsMDMLzaWW48_N_qiIMuqtzqQsaKnj-f5CBzbblhkMdIOUIHh2HxK3mKiBNg2L-8owbnhFYBqVDxTijPQ_uS4i2U_cKR72iR2g.webp',
-          likeUserNickname: '맥스웰 캣',
-          likeUserEmail: 'email@email.com'
+          favoriteUserProfileImage: 'https://i.namu.wiki/i/GQXXqhR-rnXPhWHz40mLiih5SSSqTWnm-NgGGEV5hEG4YHRfKcG_NsMDMLzaWW48_N_qiIMuqtzqQsaKnj-f5CBzbblhkMdIOUIHh2HxK3mKiBNg2L-8owbnhFYBqVDxTijPQ_uS4i2U_cKR72iR2g.webp',
+          favoriteUserNickname: '맥스웰 캣',
+          favoriteUserEmail: 'email@email.com'
      },
      {    
-          likeUserProfileImage: 'https://i.namu.wiki/i/GQXXqhR-rnXPhWHz40mLiih5SSSqTWnm-NgGGEV5hEG4YHRfKcG_NsMDMLzaWW48_N_qiIMuqtzqQsaKnj-f5CBzbblhkMdIOUIHh2HxK3mKiBNg2L-8owbnhFYBqVDxTijPQ_uS4i2U_cKR72iR2g.webp',
-          likeUserNickname: '맥스웰 캣',
-          likeUserEmail: 'email@email.com'
+          favoriteUserProfileImage: 'https://i.namu.wiki/i/GQXXqhR-rnXPhWHz40mLiih5SSSqTWnm-NgGGEV5hEG4YHRfKcG_NsMDMLzaWW48_N_qiIMuqtzqQsaKnj-f5CBzbblhkMdIOUIHh2HxK3mKiBNg2L-8owbnhFYBqVDxTijPQ_uS4i2U_cKR72iR2g.webp',
+          favoriteUserNickname: '맥스웰 캣',
+          favoriteUserEmail: 'email@email.com'
      },
      {    
-          likeUserProfileImage: 'https://i.namu.wiki/i/GQXXqhR-rnXPhWHz40mLiih5SSSqTWnm-NgGGEV5hEG4YHRfKcG_NsMDMLzaWW48_N_qiIMuqtzqQsaKnj-f5CBzbblhkMdIOUIHh2HxK3mKiBNg2L-8owbnhFYBqVDxTijPQ_uS4i2U_cKR72iR2g.webp',
-          likeUserNickname: '맥스웰 캣',
-          likeUserEmail: 'email@email.com'
+          favoriteUserProfileImage: 'https://i.namu.wiki/i/GQXXqhR-rnXPhWHz40mLiih5SSSqTWnm-NgGGEV5hEG4YHRfKcG_NsMDMLzaWW48_N_qiIMuqtzqQsaKnj-f5CBzbblhkMdIOUIHh2HxK3mKiBNg2L-8owbnhFYBqVDxTijPQ_uS4i2U_cKR72iR2g.webp',
+          favoriteUserNickname: '맥스웰 캣',
+          favoriteUserEmail: 'email@email.com'
      },
      {    
-          likeUserProfileImage: 'https://i.namu.wiki/i/GQXXqhR-rnXPhWHz40mLiih5SSSqTWnm-NgGGEV5hEG4YHRfKcG_NsMDMLzaWW48_N_qiIMuqtzqQsaKnj-f5CBzbblhkMdIOUIHh2HxK3mKiBNg2L-8owbnhFYBqVDxTijPQ_uS4i2U_cKR72iR2g.webp',
-          likeUserNickname: '맥스웰 캣',
-          likeUserEmail: 'email@email.com'
+          favoriteUserProfileImage: 'https://i.namu.wiki/i/GQXXqhR-rnXPhWHz40mLiih5SSSqTWnm-NgGGEV5hEG4YHRfKcG_NsMDMLzaWW48_N_qiIMuqtzqQsaKnj-f5CBzbblhkMdIOUIHh2HxK3mKiBNg2L-8owbnhFYBqVDxTijPQ_uS4i2U_cKR72iR2g.webp',
+          favoriteUserNickname: '맥스웰 캣',
+          favoriteUserEmail: 'email@email.com'
      },
      {    
-          likeUserProfileImage: 'https://i.namu.wiki/i/GQXXqhR-rnXPhWHz40mLiih5SSSqTWnm-NgGGEV5hEG4YHRfKcG_NsMDMLzaWW48_N_qiIMuqtzqQsaKnj-f5CBzbblhkMdIOUIHh2HxK3mKiBNg2L-8owbnhFYBqVDxTijPQ_uS4i2U_cKR72iR2g.webp',
-          likeUserNickname: '맥스웰 캣',
-          likeUserEmail: 'email@email.com'
+          favoriteUserProfileImage: 'https://i.namu.wiki/i/GQXXqhR-rnXPhWHz40mLiih5SSSqTWnm-NgGGEV5hEG4YHRfKcG_NsMDMLzaWW48_N_qiIMuqtzqQsaKnj-f5CBzbblhkMdIOUIHh2HxK3mKiBNg2L-8owbnhFYBqVDxTijPQ_uS4i2U_cKR72iR2g.webp',
+          favoriteUserNickname: '맥스웰 캣',
+          favoriteUserEmail: 'email@email.com'
      },
      {    
-          likeUserProfileImage: 'https://i.namu.wiki/i/GQXXqhR-rnXPhWHz40mLiih5SSSqTWnm-NgGGEV5hEG4YHRfKcG_NsMDMLzaWW48_N_qiIMuqtzqQsaKnj-f5CBzbblhkMdIOUIHh2HxK3mKiBNg2L-8owbnhFYBqVDxTijPQ_uS4i2U_cKR72iR2g.webp',
-          likeUserNickname: '맥스웰 캣',
-          likeUserEmail: 'email@email.com'
+          favoriteUserProfileImage: 'https://i.namu.wiki/i/GQXXqhR-rnXPhWHz40mLiih5SSSqTWnm-NgGGEV5hEG4YHRfKcG_NsMDMLzaWW48_N_qiIMuqtzqQsaKnj-f5CBzbblhkMdIOUIHh2HxK3mKiBNg2L-8owbnhFYBqVDxTijPQ_uS4i2U_cKR72iR2g.webp',
+          favoriteUserNickname: '맥스웰 캣',
+          favoriteUserEmail: 'email@email.com'
      },
      {    
-          likeUserProfileImage: 'https://i.namu.wiki/i/GQXXqhR-rnXPhWHz40mLiih5SSSqTWnm-NgGGEV5hEG4YHRfKcG_NsMDMLzaWW48_N_qiIMuqtzqQsaKnj-f5CBzbblhkMdIOUIHh2HxK3mKiBNg2L-8owbnhFYBqVDxTijPQ_uS4i2U_cKR72iR2g.webp',
-          likeUserNickname: '맥스웰 캣',
-          likeUserEmail: 'email@email.com'
+          favoriteUserProfileImage: 'https://i.namu.wiki/i/GQXXqhR-rnXPhWHz40mLiih5SSSqTWnm-NgGGEV5hEG4YHRfKcG_NsMDMLzaWW48_N_qiIMuqtzqQsaKnj-f5CBzbblhkMdIOUIHh2HxK3mKiBNg2L-8owbnhFYBqVDxTijPQ_uS4i2U_cKR72iR2g.webp',
+          favoriteUserNickname: '맥스웰 캣',
+          favoriteUserEmail: 'email@email.com'
      }
 ]
 

@@ -35,7 +35,14 @@
      font-size: 16px;
      font-weight: 500;
      line-height: 100%;
-     color: rgba(0, 0, 0, 0.7);    
+     color: rgba(0, 0, 0, 0.7);
+
+     transition: all 0.3s;
+}
+
+.board-detail-writer-nickname:hover{
+     cursor: pointer;
+     border-bottom: 1px solid black;
 }
 
 .board-detail-write-date{
@@ -229,24 +236,24 @@
      color: rgba(0, 0, 0, 0.7);
 }
 
-.like-list-box{
+.favorite-list-box{
      padding: 20px;
      margin-top: 20px;
 
      border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.like-list-title{
+.favorite-list-title{
      font-size: 16px;
      font-weight: 500;
      line-height: 100%;
 }
 
-.like-list-title-emphasis{font-weight: 700;}
+.favorite-list-title-emphasis{font-weight: 700;}
 
-.like-list-container{margin-top: 20px;}
+.favorite-list-container{margin-top: 20px;}
 
-.like-list-item{
+.favorite-list-item{
      margin-bottom: 20px;
      margin-right: 30px;
 
@@ -255,7 +262,7 @@
      align-items: center;
 }
 
-.like-user-profile{
+.favorite-user-profile{
      width: 32px;
      height: 32px;
      border-radius: 32px;
@@ -264,7 +271,7 @@
      background-position: 50% 50%;
 }
 
-.like-user-nickname{
+.favorite-user-nickname{
      margin-left: 8px;
 
      font-size: 16px;
@@ -315,52 +322,3 @@
      display: flex;
      justify-content: flex-end;
 }
-
-.comment-button{
-     margin-left: 15px;
-
-     width: 95px;
-     height: 30px;
-
-     font-size: 14px;
-     font-weight: 500;
-     color: #ffffff;
-
-     display: flex;
-     justify-content: center;
-     align-items: center;
-
-     border-radius: 46px;
-     background-color: #000000;
-
-     transition: all 0.3s;
-}
-
-.comment-button:hover{
-     cursor: pointer;
-     background-color: rgba(0, 0, 0, 0.70);
-}
-
-.comment-disable-button{
-     margin-left: 15px;
-
-     width: 95px;
-     height: 30px;
-
-     font-size: 14px;
-     font-weight: 500;
-     color: #ffffff;
-     opacity: 0.4;
-
-     display: flex;
-     justify-content: center;
-     align-items: center;
-
-     border-radius: 46px;
-     background-color: #000000;
-
-     transition: all 0.3s;
-}
-
-.comment-disable-button:hover{cursor: not-allowed;}
-

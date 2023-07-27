@@ -7,7 +7,7 @@ import { useDaumPostcodePopup, Address } from 'react-daum-postcode';
 import { useUserStore } from 'src/stores';
 import InputBox from 'src/components/InputBox';
 import { signInMock, userMock } from 'src/mocks';
-import { INPUT_ICON, eamilPattern, telnumberPattern } from 'src/constants';
+import { INPUT_ICON, MAIN_PATH, eamilPattern, telnumberPattern } from 'src/constants';
 
 import './style.css';
 
@@ -59,7 +59,7 @@ export default function Authentication() {
         return;
       }
       setUser(userMock);
-      navigator('/');
+      navigator(MAIN_PATH);
     }
 
     // component //

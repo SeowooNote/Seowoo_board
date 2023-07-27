@@ -87,3 +87,28 @@ mocks 의 commentListItem 에서 writeTime 을 실제 시간을 반영하도록 
 # useParams
 # map
 
+# 라이브러리 연동 
+npm install axios
+: axios 는 프론트와 백엔드가 서로 통신하는 것
+
+npm install react-cookie
+: F12 -> Application -> cookies
+
+# react 참고 자료 출처 링크
+https://tailwindui.com/
+https://mui.com/
+https://www.framer.com/motion/animation/
+https://lottiefiles.com/kr/
+
+https://www.electronjs.org/
+
+https://tauri.app/ko/
+: 어려움 / 성능 빠르고 좋음
+
+https://reactnative.dev/
+
+https://nextjs.org/
+
+https://ko.vitejs.dev/guide/
+: react 빌드 배포를 빠른 속도로 배포
+

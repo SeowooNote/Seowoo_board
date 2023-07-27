@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { CurrentListResponseDTO, MyPageListResponseDto, SearchListResponseDto } from 'src/interfaces/response';
 
 import './style.css';
+import { BOARD_DETAIL_PATH } from 'src/constants';
 
 
 interface Props{
@@ -18,7 +19,7 @@ export default function BoardListItem({ item }: Props) {
   // description : 속성으로 받아오는 게시물 관련 상태 //
   const { boardNumber, boardTitle, boardContent, boardImage } = item;
   const { writerProfileImage, writerNickName, writeDate } = item;
-  const { commentCount, likeCount, viewCount } = item;
+  const { commentCount, favoriteCount, viewCount } = item;
 
   //                    function                   //
   // description : 페이지 이동을 위한 네비게이트 함수 //
@@ -27,7 +28,7 @@ export default function BoardListItem({ item }: Props) {
   //           event handler          //
   // description : 컴포넌트 클릭 이벤트 //
   const onClickHandler = () => {
-    navigator(`/board/detail/${boardNumber}`);
+    navigator(BOARD_DETAIL_PATH(boardNumber));
   }
 
   // component //
@@ -51,7 +52,7 @@ export default function BoardListItem({ item }: Props) {
         </div>
         <div className="board-list-item-title">{ boardTitle }</div>
         <div className="board-list-item-content">{ boardContent }</div>
-        <div className="board-list-item-count">{ `댓글 ${commentCount} · 좋아요 ${likeCount} · 조회수 ${viewCount}` }</div>
+        <div className="board-list-item-count">{ `댓글 ${commentCount} · 좋아요 ${favoriteCount} · 조회수 ${viewCount}` }</div>
       </div>
       <div className='board-list-right'>
         <div className="board-list-item-board-image"

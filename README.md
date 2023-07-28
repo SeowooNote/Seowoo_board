@@ -112,3 +112,31 @@ https://nextjs.org/
 https://ko.vitejs.dev/guide/
 : react 빌드 배포를 빠른 속도로 배포
 
+```
+벡엔드로 데이터 전송 => axios(비동기)
+	- 회원가입 포맷에 맞춰서
+		const data: 타입 = {
+			해당 타입의 데이터 1,
+			해당 타입의 데이터 2...
+		}
+		
+		axios.post('url', data).then((response) => {
+			// todo: 정상 결과, 성공 시 처리
+		}).catch((error) => {
+			// todo: 실패 결과(try catch 문), 실패 시 처리
+		});
+		
+자바스크립트는 비동기식으로 구성되어 있음
+
+HTTP 요청 메서드 - GET, POST, PUT, PATCH, DELETE, CONNECT...
+https://developer.mozilla.org/ko/docs/Web/HTTP/Methods
+
+HTTP 상태 코드(3자리 숫자)
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+	- 1XX(정보) : 요청을 받았으며 프로세스를 계속 진행
+	- 2XX(성공) : 요청을 성공적으로 받았으며 인식하고 수용
+	- 3XX(리다이렉션) : 클라이언트 요청을 완료하기 위해 추가적인 동작을 취해야 함
+	- 4XX(클라이언트 오류) : 클라이언트의 요청에 오류가 있음
+	- 5XX(서버 오류) : 서버가 유효한 요청을 처리하는데 실패
+```
+

@@ -1,5 +1,6 @@
 import { useState, useEffect, ChangeEvent } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import axios from 'axios';
 
 import { BoardDetailResponseDto, FavoriteListResponseDto, CommentListResponseDto } from 'src/interfaces/response';
 import { boardDetailMock, commentListMock, favoriteListMock } from 'src/mocks';
@@ -81,8 +82,11 @@ export default function BoardDetail() {
     }
     // description : 삭제 버튼 클릭 이벤트 //
     const onDeleteButtonClickHandler = () => {
-      alert(`해당 게시물이 삭제되었습니다.`);
-      navigator(MAIN_PATH);
+      axios.delete('url').then((response) => {
+        navigator(MAIN_PATH);
+      }).catch((error) => {
+
+      });
     }
     // description : 좋아요 버튼 클릭 이벤트 //
     const onFavoriteButtonClickHandler = () => {

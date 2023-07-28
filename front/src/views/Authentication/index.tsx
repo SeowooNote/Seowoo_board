@@ -3,13 +3,17 @@ import { useNavigate } from 'react-router-dom';
 // 링크 주소 : https://www.npmjs.com/package/react-daum-postcode
 // Daum 우편번호 검색 서비스 import
 import { useDaumPostcodePopup, Address } from 'react-daum-postcode';
+import axios from 'axios';
 
+import { SignInRequestDto, SignUpRequestDto } from 'src/interfaces/requests';
 import { useUserStore } from 'src/stores';
 import InputBox from 'src/components/InputBox';
 import { signInMock, userMock } from 'src/mocks';
 import { INPUT_ICON, MAIN_PATH, eamilPattern, telnumberPattern } from 'src/constants';
 
 import './style.css';
+
+
 
 //            component            //
 // description : 인증 화면 컴포넌트 //
@@ -53,13 +57,24 @@ export default function Authentication() {
       setView('sign-up');
     }
     // description : 로그인 버튼 클릭 이벤트 //
-    const onSignInButtonClickHandler = () => {
+    const onSignInButtonClickHandler = async () => {
       if(email !== signInMock.email || password !== signInMock.password){
         setError(true);
         return;
       }
-      setUser(userMock);
-      navigator(MAIN_PATH);
+
+      const data: SignInRequestDto = {
+        email,
+        password
+      }
+
+      axios.post('url', data).then((response) => {
+        // todo: 성공 시 처리
+        setUser(userMock);
+        navigator(MAIN_PATH);
+      }).catch((error) => {
+        // todo: 실패 시 처리
+      });
     }
 
     // component //
@@ -156,7 +171,24 @@ export default function Authentication() {
       setNickNameError(!nickname);
       setAddressError(!address);
 
-      if(!telNumberFlag && nickname && address) setView('sign-in');
+      // if(!telNumberFlag && nickname && address) setView('sign-in');
+
+      // description : 백엔드로 데이터 전송 (회원가입 포맷에 맞춰서) //
+      const data: SignUpRequestDto = {
+        email, 
+        password, 
+        nickname, 
+        telNumber, 
+        address,
+        addressDetail
+      }
+      axios.post('url', data).then((response) => {
+        // todo : 정상 결과
+        setView('sign-in');
+      }).catch((error) => {
+        // todo : 실패 결과
+
+      });
     }
 
     //                  event handler                  //

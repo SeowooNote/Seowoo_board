@@ -3,15 +3,16 @@ import axios from 'axios';
 import { PostBoardRequestDto, SignInRequestDto, SignUpRequestDto } from "src/interfaces/requests";
 
 const API_DOMAIN = () => 'http://localhost:4040/api/v1';
-const SIGN_UP_URL = () => `${API_DOMAIN}/auth/sign-up`;
-const SIGN_IN_URL = () => `${API_DOMAIN}/auth/sign-up`;
+
+const SIGN_UP_URL = () => `${API_DOMAIN}/authentication/sign-up`;
+const SIGN_IN_URL = () => `${API_DOMAIN}/authentication/sign-in`;
 
 const GET_TOP3_BOARD_LIST_URL = () => `${API_DOMAIN}/board/top-3`;
 const GET_CURRENT_BOARD_LIST_URL = () => `${API_DOMAIN}/board/current-board`;
 const GET_POPULAR_LIST_URL = () => `${API_DOMAIN}/search/popular`;
 
 const GET_SEARCH_BOARD_LIST_URL = (searchWord: string) => `${API_DOMAIN}/board/search/${searchWord}`;
-const GET_RELATION_LIST_URL = (searchWord: string) => `${API_DOMAIN}/search/relation${searchWord}`;
+const GET_RELATION_LIST_URL = (searchWord: string) => `${API_DOMAIN}/search/relation/${searchWord}`;
 
 const GET_BOARD_URL = (boardNumber: number | string) => `${API_DOMAIN}/board/${boardNumber}`;
 const GET_FAVORITE_LIST_URL = (boardNumber : number | string) => `${API_DOMAIN}/board/${boardNumber}/favorite-list`;

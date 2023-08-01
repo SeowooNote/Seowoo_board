@@ -1,0 +1,17 @@
+package com.seowoo.board.controller;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+// controller : 파일 컨트롤러 //
+@RestController
+@RequestMapping("/api/v1/user")
+public class FileController {
+
+     // API : 파일 업로드 메소드 //
+     @PostMapping("/upload")
+     public String upload() {          
+          return null;
+     }
+}

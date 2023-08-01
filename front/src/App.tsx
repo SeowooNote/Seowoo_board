@@ -24,6 +24,8 @@ import InputBox from './components/InputBox';
 import { AUTHENTICATION_PATH, BOARD_NUMBER_PATH_VARIABLE, BOARD_PATH, DETAIL_PATH, INPUT_ICON, MAIN_PATH, SEARCH_PATH, SEARCH_WORD_PATH_VARIABLE, UPDATE_PATH, USER_EMAIL_PATH_VARIABLE, USER_PAGE_PATH, WRITE_PATH } from './constants';
 
 import './App.css';
+import axios from 'axios';
+import { useEffect } from 'react';
 
 // 메인화면 - path: '/' / component : <Main />
 // 로그인 / 회원가입 - path: '/authentication' / component : <Authentication />
@@ -42,6 +44,15 @@ function App() {
   // function //
 
   // effect //
+  useEffect(() => {
+    axios.get("http://localhost:4040")
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => {
+      console.log(error.message);
+    })
+  }, []);
 
   // render //
   return (

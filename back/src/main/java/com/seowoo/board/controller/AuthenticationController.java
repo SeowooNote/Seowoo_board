@@ -9,9 +9,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.seowoo.board.common.response.CustomResponse;
 import com.seowoo.board.dto.request.authentication.SignInRequestDto;
 import com.seowoo.board.dto.request.authentication.SignUpRequestDto;
+import com.seowoo.board.dto.response.authentication.SignInResponseDto;
+import com.seowoo.board.dto.response.authentication.SignUpResponseDto;
 
 // controller : 인증 컨트롤러 //
 @RestController
@@ -20,18 +21,20 @@ public class AuthenticationController {
      
      // API : 회원가입 메서드 //
      @PostMapping("/sign-up")
-     public ResponseEntity<?> singUp(
+     public ResponseEntity<SignUpResponseDto> singUp(
           @RequestBody @Valid SignUpRequestDto requestBody
      ) {
-          return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).body(null);
+          SignUpResponseDto response = SignUpResponseDto.existedEmail();
+          return ResponseEntity.status(HttpStatus.OK).body(response);
      }
 
      // API : 로그인 메서드 //
      @PostMapping("/sign-in")
-     public ResponseEntity<?> signIn(
+     public ResponseEntity<? super SignInResponseDto> signIn(
           @RequestBody @Valid SignInRequestDto requestBody
      ) {
-          return CustomResponse.serviceUnavailable;
+          SignInResponseDto response = SignInResponseDto.success("abc");
+          return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).body(response);
      }
 
 }

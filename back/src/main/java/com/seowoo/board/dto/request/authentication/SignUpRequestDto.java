@@ -23,7 +23,7 @@ public class SignUpRequestDto {
      @NotBlank
      private String nickname;
 
-     @NotBlank @Pattern(regexp = "^[0-9]{11, 12}$")
+     @NotBlank @Pattern(regexp = "^[0-9]{11,12}$")
      private String telNumber;
 
      @NotBlank

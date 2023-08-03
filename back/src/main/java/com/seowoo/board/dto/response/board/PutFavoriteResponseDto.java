@@ -1,7 +1,5 @@
 package com.seowoo.board.dto.response.board;
 
-import org.hibernate.validator.cfg.defs.pl.REGONDef;
-
 import com.seowoo.board.common.response.ResponseCode;
 import com.seowoo.board.common.response.ResponseMessage;
 import com.seowoo.board.dto.response.ResponseDto;
@@ -11,13 +9,13 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class PatchBoardResponseDto extends ResponseDto {
-     private PatchBoardResponseDto(String code, String message) {
+public class PutFavoriteResponseDto extends ResponseDto {
+     private PutFavoriteResponseDto(String code, String message){
           super(code, message);
      }
 
-     public static PatchBoardResponseDto success() {
-          PatchBoardResponseDto result = new PatchBoardResponseDto(ResponseCode.SUCCESS, ResponseMessage.SUCCESS);
+     public static PutFavoriteResponseDto success() {
+          PutFavoriteResponseDto result = new PutFavoriteResponseDto(ResponseCode.SUCCESS, ResponseMessage.SUCCESS);
           return result;
      }
 
@@ -31,8 +29,4 @@ public class PatchBoardResponseDto extends ResponseDto {
           return result;
      }
 
-     public static ResponseDto noPermission() {
-          ResponseDto result = new ResponseDto(ResponseCode.NO_PERMISSION, ResponseMessage.NO_PERMISSION);
-          return result;
-     }
 }

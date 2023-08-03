@@ -1,0 +1,19 @@
+package com.seowoo.board.common.response;
+
+public interface ResponseMessage {
+     // public static final String SUCCESS = "Success";
+     String SUCCESS = "Success";
+
+     String EXISTED_EMAIL  = "Existed Email";
+     String EXISTED_NICKNAME = "Existed Nickname";
+     String EXISTED_TELNUMBER = "Existed Tel Number";
+
+     String NO_EXISTED_USER = "No Existed User";
+     String NO_EXISTED_BOARD = "No Existed Board";
+
+     String NO_PERMISSION = "No Permission";
+
+     String SIGN_IN_FAIL = "Sign In Data Mismatch";
+
+     String DATABASE_ERROR = "Database Error";
+}

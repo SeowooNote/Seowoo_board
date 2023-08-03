@@ -2,6 +2,7 @@ package com.seowoo.board.controller;
 
 import javax.validation.Valid;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,22 +19,36 @@ import com.seowoo.board.dto.request.board.PatchBoardRequestDto;
 import com.seowoo.board.dto.request.board.PostBoardRequestDto;
 import com.seowoo.board.dto.request.board.PostCommentRequestDto;
 import com.seowoo.board.dto.request.board.PutFavoriteRequestDto;
+import com.seowoo.board.dto.response.board.DeleteBoardResponseDto;
+import com.seowoo.board.dto.response.board.PatchBoardResponseDto;
+import com.seowoo.board.dto.response.board.PostBoardResponseDto;
+import com.seowoo.board.dto.response.board.PostCommentResponseDto;
+import com.seowoo.board.dto.response.board.PutFavoriteResponseDto;
+import com.seowoo.board.service.BoardService;
+
+import lombok.RequiredArgsConstructor;
 
 // controller : 게시물 컨트롤러 //
 @RestController
 @RequestMapping("api/v1/board")
+@RequiredArgsConstructor
 public class BoardController {
-     
+
+     private final BoardService boardService;
+
+
      // API : TOP3 게시물 불러오기 메서드 //
      @GetMapping("/top-3")
      public ResponseEntity<?> getTop3() {
-          return CustomResponse.serviceUnavailable;
+          ResponseEntity<?> response = boardService.getTop3();
+          return response;
      }
 
      // API : 최신 게시물 리스트 불러오기 메서드 //
      @GetMapping("/current-board")
      public ResponseEntity<?> getCurrent() {
-          return CustomResponse.serviceUnavailable;
+          ResponseEntity<?> response = boardService.getCurrent();
+          return response;
      }
 
      // API : 게시물 불러오기 메서드 //
@@ -41,15 +56,18 @@ public class BoardController {
      public ResponseEntity<?> getBoard(
           @PathVariable("boardNumber") Integer boardNumber
      ) {
-          return CustomResponse.serviceUnavailable;
+          ResponseEntity<?> response = boardService.getBoard(boardNumber);
+          return response;
      }
 
+     // 여기 부터
      // API : 검색 게시물 리스트 불러오기 메서드 //
      @GetMapping("/search/{searchWord}")
      public ResponseEntity<?> getSearchBoardList(
           @PathVariable("searchWord") String searchWord
      ) {
-          return CustomResponse.serviceUnavailable;
+          ResponseEntity<?> response = boardService.getSearchBoardList(searchWord);
+          return response;
      }
 
      // API : 특정 게시물의 좋아요 리스트 불러오기 메서드 //
@@ -57,7 +75,8 @@ public class BoardController {
      public ResponseEntity<?> getFavoriteList(
           @PathVariable("boardNumber") Integer boardNumber
      ) {
-          return CustomResponse.serviceUnavailable;
+          ResponseEntity<?> response = boardService.getFavoriteList(boardNumber);
+          return response;
      }
 
      // API : 특정 게시물의 댓글 리스트 불러오기 메서드 //
@@ -65,7 +84,8 @@ public class BoardController {
      public ResponseEntity<?> getCommentList(
           @PathVariable("boardNumber") Integer boardNumber
      ){
-          return CustomResponse.serviceUnavailable;
+          ResponseEntity<?> response = boardService.getCommentList(boardNumber);
+          return response;
      }
 
      // API : 특정 유저의 게시물 리스트 불러오기 메서드 //
@@ -73,48 +93,57 @@ public class BoardController {
      public ResponseEntity<?> getUserList(
           @PathVariable("email") String email
      ) {
-          return CustomResponse.serviceUnavailable;
+          ResponseEntity<?> response = boardService.getUserList(email);
+          return response;
      }
 
      // API : 게시물 작성 메서드 //
      @PostMapping("")
-     public ResponseEntity<?> postBoard(
+     public ResponseEntity<? super PostBoardResponseDto> postBoard(
           @RequestBody @Valid PostBoardRequestDto requestBody
      ) {
-          return CustomResponse.serviceUnavailable;
+          ResponseEntity<? super PostBoardResponseDto> response = boardService.postBoard(requestBody);
+          return response;
      }
 
      // API : 댓글 작성 메서드 //
      @PostMapping("/{boardNumber}/comment")
-     public ResponseEntity<?> postComment(
+     public ResponseEntity<? super PostCommentResponseDto> postComment(
+          @PathVariable("boardNumber") Integer boardNumber,
           @RequestBody @Valid PostCommentRequestDto requestBody
      ) {
-          return CustomResponse.serviceUnavailable;
+          ResponseEntity<? super PostCommentResponseDto> response = boardService.postComment(boardNumber, requestBody);
+          return response;
+          
      }
 
      // API : 좋아요 기능 메서드 //
      @PutMapping("/{boardNumber}/favorite")
-     public ResponseEntity<?> putFavorite(
+     public ResponseEntity<? super PutFavoriteResponseDto> putFavorite(
+          @PathVariable("boardNumber") Integer boardNumber,
           @RequestBody @Valid PutFavoriteRequestDto requestBody
      ) {
-          return CustomResponse.serviceUnavailable;
+          ResponseEntity<? super PutFavoriteResponseDto> response = boardService.putFavorite(boardNumber, requestBody);
+          return response;
      }
 
      // API : 게시물 수정 메서드 //
      @PatchMapping("/{boardNumber}")
-     public ResponseEntity<?> patchBoard(
+     public ResponseEntity<? super PatchBoardResponseDto> patchBoard(
           @PathVariable("boardNumber") Integer boardNumber,
           @RequestBody @Valid PatchBoardRequestDto requestBody
      ) {
-          return CustomResponse.serviceUnavailable;
+          ResponseEntity<? super PatchBoardResponseDto> response = boardService.patchBoard(boardNumber, requestBody);
+          return response;
      }
 
      // API : 게시물 삭제 메서드 //
      @DeleteMapping("/{boardNumber}/{email}")
-     public ResponseEntity<?> deleteBoard(
+     public ResponseEntity<? super DeleteBoardResponseDto> deleteBoard(
           @PathVariable("boardNumber") Integer boardNumber,
           @PathVariable("email") String email
      ){
-          return CustomResponse.serviceUnavailable;
+          ResponseEntity<? super DeleteBoardResponseDto> response = boardService.deleteBoard(boardNumber, email);
+          return response;
      }
 }

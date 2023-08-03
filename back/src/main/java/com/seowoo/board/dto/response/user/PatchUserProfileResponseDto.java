@@ -1,4 +1,4 @@
-package com.seowoo.board.dto.response.board;
+package com.seowoo.board.dto.response.user;
 
 import com.seowoo.board.common.response.ResponseCode;
 import com.seowoo.board.common.response.ResponseMessage;
@@ -9,17 +9,17 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class PostBoardResponseDto extends ResponseDto {
-     private PostBoardResponseDto (String code, String message) {
+public class PatchUserProfileResponseDto extends ResponseDto {
+     private PatchUserProfileResponseDto(String code, String message) {
           super(code, message);
      }
 
-     public static PostBoardResponseDto success() {
-          PostBoardResponseDto result = new PostBoardResponseDto(ResponseCode.SUCCESS, ResponseMessage.SUCCESS);
+     public static PatchUserProfileResponseDto success() {
+          PatchUserProfileResponseDto result = new PatchUserProfileResponseDto(ResponseCode.SUCCESS, ResponseMessage.SUCCESS);
           return result;
      }
 
-     public static ResponseDto noExistedUser() {
+     public static ResponseDto NoExsitedUser() {
           ResponseDto result = new ResponseDto(ResponseCode.NO_EXISTED_USER, ResponseMessage.NO_EXISTED_USER);
           return result;
      }

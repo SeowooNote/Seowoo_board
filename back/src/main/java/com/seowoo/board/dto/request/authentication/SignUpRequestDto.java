@@ -17,7 +17,7 @@ public class SignUpRequestDto {
      @NotBlank @Email
      private String email;
 
-     @NotBlank @Length(min = 8)
+     @NotBlank @Length(min=8)
      private String password;
 
      @NotBlank

@@ -1,5 +1,8 @@
 package com.seowoo.board.dto.response.authentication;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
 import com.seowoo.board.common.response.ResponseCode;
 import com.seowoo.board.common.response.ResponseMessage;
 import com.seowoo.board.dto.response.ResponseDto;
@@ -14,24 +17,24 @@ public class SignUpResponseDto extends ResponseDto {
           super(code, message);
      }
 
-     public static SignUpResponseDto success() {
+     public static ResponseEntity<SignUpResponseDto> success() {
           SignUpResponseDto result = new SignUpResponseDto(ResponseCode.SUCCESS, ResponseMessage.SUCCESS);
-          return result;
+          return ResponseEntity.status(HttpStatus.OK).body(result);
      }
 
-     public static ResponseDto existedEmail() {
+     public static ResponseEntity<ResponseDto> existedEmail() {
           ResponseDto result = new ResponseDto(ResponseCode.EXISTED_EMAIL, ResponseMessage.EXISTED_EMAIL);
-          return result;
+          return ResponseEntity.status(HttpStatus.OK).body(result);
      }
 
-     public static ResponseDto existedNickname() {
+     public static ResponseEntity<ResponseDto> existedNickname() {
           ResponseDto result = new ResponseDto(ResponseCode.EXISTED_NICKNAME, ResponseMessage.EXISTED_NICKNAME);
-          return result;
+          return ResponseEntity.status(HttpStatus.OK).body(result);
      }
 
-     public static ResponseDto existedTelNumber() {
+     public static ResponseEntity<ResponseDto> existedTelNumber() {
           ResponseDto result = new ResponseDto(ResponseCode.EXISTED_TELNUMBER, ResponseMessage.EXISTED_TELNUMBER);
-          return result;
+          return ResponseEntity.status(HttpStatus.OK).body(result);
      }
 
      

@@ -12,6 +12,7 @@ import { signInMock, userMock } from 'src/mocks';
 import { INPUT_ICON, MAIN_PATH, eamilPattern, telnumberPattern } from 'src/constants';
 
 import './style.css';
+import { signUpRequest } from 'src/apis';
 
 
 
@@ -116,7 +117,7 @@ export default function Authentication() {
     // description : 다음 포스트 (우편번호검색) 팝업 상태 //
     const open = useDaumPostcodePopup();
     // description : 회원가입 카드 페이지 상태 //
-    const [page, setPage] = useState<1 | 2>(2);
+    const [page, setPage] = useState<1 | 2>(1);
     // description : 비밀번호 Input 타입 상태 //
     const [showPassword, setShowPassword] = useState<boolean>(false);
     // description : 비밀번호 확인 Input 타입 상태 //
@@ -182,12 +183,9 @@ export default function Authentication() {
         address,
         addressDetail
       }
-      axios.post('url', data).then((response) => {
-        // todo : 정상 결과
-        setView('sign-in');
-      }).catch((error) => {
-        // todo : 실패 결과
 
+      signUpRequest(data).then((response) => {
+        console.log(response);
       });
     }
 

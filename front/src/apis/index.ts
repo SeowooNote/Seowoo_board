@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import { PostBoardRequestDto, SignInRequestDto, SignUpRequestDto } from "src/interfaces/requests";
 
-const API_DOMAIN = () => 'http://localhost:4040/api/v1';
+const API_DOMAIN = 'http://localhost:4040/api/v1';
 
 const SIGN_UP_URL = () => `${API_DOMAIN}/authentication/sign-up`;
 const SIGN_IN_URL = () => `${API_DOMAIN}/authentication/sign-in`;

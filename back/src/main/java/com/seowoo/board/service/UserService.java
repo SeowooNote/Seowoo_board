@@ -18,5 +18,5 @@ public interface UserService {
      ResponseEntity<? super PatchUserNicknameResponseDto> patchUserNikname(String email, PatchUserNicknameRequestDto dto);
 
      // method : 유저 프로필 이미지 수정 메서드 //
-     ResponseEntity<PatchUserProfileResponseDto> patchUserProfile(String email, PatchUserProfileRequestDto dto);
+     ResponseEntity<? super PatchUserProfileResponseDto> patchUserProfile(String email, PatchUserProfileRequestDto dto);
 }

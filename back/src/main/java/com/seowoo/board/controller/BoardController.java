@@ -20,6 +20,7 @@ import com.seowoo.board.dto.request.board.PostBoardRequestDto;
 import com.seowoo.board.dto.request.board.PostCommentRequestDto;
 import com.seowoo.board.dto.request.board.PutFavoriteRequestDto;
 import com.seowoo.board.dto.response.board.DeleteBoardResponseDto;
+import com.seowoo.board.dto.response.board.GetCurrentBoardResponseDto;
 import com.seowoo.board.dto.response.board.PatchBoardResponseDto;
 import com.seowoo.board.dto.response.board.PostBoardResponseDto;
 import com.seowoo.board.dto.response.board.PostCommentResponseDto;
@@ -46,8 +47,8 @@ public class BoardController {
 
      // API : 최신 게시물 리스트 불러오기 메서드 //
      @GetMapping("/current-board")
-     public ResponseEntity<?> getCurrent() {
-          ResponseEntity<?> response = boardService.getCurrent();
+     public ResponseEntity<?> getCurrentBoard() {
+          ResponseEntity<?> response = boardService.getCurrentBoard();
           return response;
      }
 
@@ -60,7 +61,6 @@ public class BoardController {
           return response;
      }
 
-     // 여기 부터
      // API : 검색 게시물 리스트 불러오기 메서드 //
      @GetMapping("/search/{searchWord}")
      public ResponseEntity<?> getSearchBoardList(

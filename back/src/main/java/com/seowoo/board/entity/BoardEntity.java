@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.seowoo.board.dto.request.board.PatchBoardRequestDto;
 import com.seowoo.board.dto.request.board.PostBoardRequestDto;
 
 import lombok.AllArgsConstructor;
@@ -43,5 +44,11 @@ public class BoardEntity {
           this.imageUrl = dto.getImageUrl();
           this.writeDatetime = writeDatetime;
           this.writerEmail = dto.getWriterEmail();
+     }
+
+     public void patch(PatchBoardRequestDto dto) {
+          this.title = dto.getTitle();
+          this.contents = dto.getContents();
+          this.imageUrl = dto.getImageUrl();
      }
 }

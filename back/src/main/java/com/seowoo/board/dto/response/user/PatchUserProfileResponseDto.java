@@ -1,5 +1,8 @@
 package com.seowoo.board.dto.response.user;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
 import com.seowoo.board.common.response.ResponseCode;
 import com.seowoo.board.common.response.ResponseMessage;
 import com.seowoo.board.dto.response.ResponseDto;
@@ -14,13 +17,13 @@ public class PatchUserProfileResponseDto extends ResponseDto {
           super(code, message);
      }
 
-     public static PatchUserProfileResponseDto success() {
+     public static ResponseEntity<PatchUserProfileResponseDto> success() {
           PatchUserProfileResponseDto result = new PatchUserProfileResponseDto(ResponseCode.SUCCESS, ResponseMessage.SUCCESS);
-          return result;
+          return ResponseEntity.status(HttpStatus.OK).body(result);
      }
 
-     public static ResponseDto NoExsitedUser() {
+     public static ResponseEntity<ResponseDto> NoExsitedUser() {
           ResponseDto result = new ResponseDto(ResponseCode.NO_EXISTED_USER, ResponseMessage.NO_EXISTED_USER);
-          return result;
+          return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(result);
      }
 }

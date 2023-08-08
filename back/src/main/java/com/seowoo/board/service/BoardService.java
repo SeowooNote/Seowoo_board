@@ -10,6 +10,7 @@ import com.seowoo.board.dto.request.board.PostBoardRequestDto;
 import com.seowoo.board.dto.request.board.PostCommentRequestDto;
 import com.seowoo.board.dto.request.board.PutFavoriteRequestDto;
 import com.seowoo.board.dto.response.board.DeleteBoardResponseDto;
+import com.seowoo.board.dto.response.board.GetCurrentBoardResponseDto;
 import com.seowoo.board.dto.response.board.PatchBoardResponseDto;
 import com.seowoo.board.dto.response.board.PostBoardResponseDto;
 import com.seowoo.board.dto.response.board.PostCommentResponseDto;
@@ -20,7 +21,7 @@ public interface BoardService {
      ResponseEntity<?> getTop3();
 
      // method : 최신 게시물 리스트 불러오기 메서드 //
-     ResponseEntity<?> getCurrent();
+     ResponseEntity<? super GetCurrentBoardResponseDto> getCurrentBoard();
 
      // method : 게시물 불러오기 메서드 //
      ResponseEntity<?> getBoard(Integer boardNumber);

@@ -10,7 +10,11 @@ import com.seowoo.board.dto.request.board.PostBoardRequestDto;
 import com.seowoo.board.dto.request.board.PostCommentRequestDto;
 import com.seowoo.board.dto.request.board.PutFavoriteRequestDto;
 import com.seowoo.board.dto.response.board.DeleteBoardResponseDto;
+import com.seowoo.board.dto.response.board.GetBoardResponseDto;
 import com.seowoo.board.dto.response.board.GetCurrentBoardResponseDto;
+import com.seowoo.board.dto.response.board.GetSearchBoardResponseDto;
+import com.seowoo.board.dto.response.board.GetTop3ResponseDto;
+import com.seowoo.board.dto.response.board.GetUserListResponseDto;
 import com.seowoo.board.dto.response.board.PatchBoardResponseDto;
 import com.seowoo.board.dto.response.board.PostBoardResponseDto;
 import com.seowoo.board.dto.response.board.PostCommentResponseDto;
@@ -18,16 +22,16 @@ import com.seowoo.board.dto.response.board.PutFavoriteResponseDto;
 
 public interface BoardService {
      // method : Top3 게시물 불러오기 메서드 //
-     ResponseEntity<?> getTop3();
+     ResponseEntity<? super GetTop3ResponseDto> getTop3();
 
      // method : 최신 게시물 리스트 불러오기 메서드 //
      ResponseEntity<? super GetCurrentBoardResponseDto> getCurrentBoard();
 
      // method : 게시물 불러오기 메서드 //
-     ResponseEntity<?> getBoard(Integer boardNumber);
+     ResponseEntity<? super GetBoardResponseDto> getBoard(Integer boardNumber);
 
      // method : 검색 게시물 리스트 불러오기 메서드 //
-     ResponseEntity<?> getSearchBoardList(String searchWord);
+     ResponseEntity<? super GetSearchBoardResponseDto> getSearchBoard(String searchWord, String relationWord);
 
      // method : 특정 게시물의 좋아요 리스트 불러오기 메서드 //
      ResponseEntity<?> getFavoriteList(Integer boardNumber);
@@ -36,7 +40,7 @@ public interface BoardService {
      ResponseEntity<?> getCommentList(Integer boardNumber);
 
      // method : 특정 유저의 게시물 리스트 불러오기 메서드 //
-     ResponseEntity<?> getUserList(String email);
+     ResponseEntity<? super GetUserListResponseDto> getUserList(String email);
 
      // method : 게시물 작성 메서드 //
      ResponseEntity<? super PostBoardResponseDto> postBoard(PostBoardRequestDto dto);

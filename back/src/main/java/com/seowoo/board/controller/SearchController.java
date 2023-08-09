@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.seowoo.board.common.response.CustomResponse;
 import com.seowoo.board.service.SearchService;
 
 import lombok.RequiredArgsConstructor;

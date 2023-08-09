@@ -6,7 +6,7 @@ public interface BoardListResultSet {
      String getContents();
      String getImageUrl();
      int getViewCount();
-     int getCommenCount();
+     int getCommentCount();
      int getFavoriteCount();
      String getWriteDatetime();
      String getWriterProfileImage();

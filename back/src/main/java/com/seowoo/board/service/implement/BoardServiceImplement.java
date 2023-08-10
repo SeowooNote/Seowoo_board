@@ -2,7 +2,6 @@ package com.seowoo.board.service.implement;
 
 import java.util.List;
 
-import org.hibernate.sql.Delete;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +11,13 @@ import com.seowoo.board.dto.request.board.PostCommentRequestDto;
 import com.seowoo.board.dto.request.board.PutFavoriteRequestDto;
 import com.seowoo.board.dto.response.ResponseDto;
 import com.seowoo.board.dto.response.board.BoardListResponseDto;
+import com.seowoo.board.dto.response.board.CommentListResponseDto;
 import com.seowoo.board.dto.response.board.DeleteBoardResponseDto;
+import com.seowoo.board.dto.response.board.FavoriteListResponseDto;
 import com.seowoo.board.dto.response.board.GetBoardResponseDto;
+import com.seowoo.board.dto.response.board.GetCommentListResponseDto;
 import com.seowoo.board.dto.response.board.GetCurrentBoardResponseDto;
+import com.seowoo.board.dto.response.board.GetFavoriteListResponseDto;
 import com.seowoo.board.dto.response.board.GetSearchBoardResponseDto;
 import com.seowoo.board.dto.response.board.GetTop3ResponseDto;
 import com.seowoo.board.dto.response.board.GetUserListResponseDto;
@@ -27,7 +30,9 @@ import com.seowoo.board.entity.BoardViewEntity;
 import com.seowoo.board.entity.CommentEntity;
 import com.seowoo.board.entity.FavoriteEntity;
 import com.seowoo.board.entity.SearchLogEntity;
+import com.seowoo.board.entity.UserEntity;
 import com.seowoo.board.entity.resultSet.BoardListResultSet;
+import com.seowoo.board.entity.resultSet.CommentListResultSet;
 import com.seowoo.board.repository.BoardRepository;
 import com.seowoo.board.repository.BoardViewRespository;
 import com.seowoo.board.repository.CommentRepository;
@@ -96,7 +101,15 @@ public class BoardServiceImplement implements BoardService {
                // description : 게시물 번호에 해당하는 게시물 조회 //
                boardViewEntity = boardViewRespository.findByBoardNumber(boardNumber);
                
-               // todo : 존재하지 않을때 구현 //
+               // description : 존재하는 게시물인지 확인 //
+               if(boardViewEntity == null) return GetBoardResponseDto.noExistedBoard();
+
+               // description : 게시물 조회수 증가 //
+               BoardEntity boardEntity = boardRepository.findByBoardNumber(boardNumber);
+               boardEntity.increaseViewCount();
+
+               // description : 데이터베이스에 저장 //
+               boardRepository.save(boardEntity);
                
           } catch (Exception exception) {
                exception.printStackTrace();
@@ -136,15 +149,41 @@ public class BoardServiceImplement implements BoardService {
      }
 
      @Override
-     public ResponseEntity<?> getFavoriteList(Integer boardNumber) {
-          // TODO Auto-generated method stub
-          throw new UnsupportedOperationException("Unimplemented method 'getFavoriteList'");
+     public ResponseEntity<? super GetFavoriteListResponseDto> getFavoriteList(Integer boardNumber) {
+          List<FavoriteListResponseDto> favoriteList = null;
+
+          try {
+               // description : 게시물번호의 좋아요 리스트 조회 //
+               List<UserEntity> userEntities = userRepository.getFavoriteList(boardNumber);
+
+               // description : entity 를 dto 로 변환 //
+               favoriteList = FavoriteListResponseDto.copyEntityList(userEntities);
+
+          } catch (Exception exception) {
+               exception.printStackTrace();
+               return ResponseDto.databaseError();
+          }
+
+          return GetFavoriteListResponseDto.success(favoriteList);
      }
 
      @Override
-     public ResponseEntity<?> getCommentList(Integer boardNumber) {
-          // TODO Auto-generated method stub
-          throw new UnsupportedOperationException("Unimplemented method 'getCommentList'");
+     public ResponseEntity<? super GetCommentListResponseDto> getCommentList(Integer boardNumber) {
+          List<CommentListResponseDto> commentList = null;
+
+          try {
+               // description : 게시물의 댓글 리스트 조회 //
+               List<CommentListResultSet> resultSets = commentRepository.getCommentList(boardNumber);
+
+               // description : resultSet 을 dto 로 변환 //
+               commentList = CommentListResponseDto.copyList(resultSets);
+               
+          } catch (Exception exception) {
+               exception.printStackTrace();
+               return ResponseDto.databaseError();
+          }
+
+          return GetCommentListResponseDto.success(commentList);
      }
 
      @Override
@@ -195,24 +234,25 @@ public class BoardServiceImplement implements BoardService {
           String userEmail = dto.getUserEmail();
 
           try {
-               
-               // description : boardNumber 가 null 인지 확인 //
-               // todo : (추후 controller 로 이동) //
-               if(boardNumber == null) return PostCommentResponseDto.noExistedBoard();
-
                // description : 존재하는 회원인지 확인 //
                boolean hasUser = userRepository.existsByEmail(userEmail);
                if(!hasUser) return PostCommentResponseDto.noExistedUser();
 
                // description : 존재하는 게시물인지 확인 //
-               boolean hasBoard = boardRepository.existsByBoardNumber(boardNumber);
-               if(!hasBoard) return PostCommentResponseDto.noExistedBoard();
+               BoardEntity boardEntity = boardRepository.findByBoardNumber(boardNumber);
+               if(boardEntity == null) return PostCommentResponseDto.noExistedBoard();
 
                // description : entity 생성 //
                CommentEntity commentEntity = new CommentEntity(boardNumber, dto);
 
                // description : 데이터베이스 저장 //
                commentRepository.save(commentEntity);
+
+               // description : 게시물 댓글 수 증가 //
+               boardEntity.increaseCommentCount();
+
+               // description : 데이터베이스 저장 //
+               boardRepository.save(boardEntity);
 
           } catch (Exception exception) {
                exception.printStackTrace();
@@ -227,18 +267,13 @@ public class BoardServiceImplement implements BoardService {
           String userEmail = dto.getUserEmail();
 
           try {
-
-               // description : boardNumber 가 null 인지 확인 //
-               // todo : (추후 controller 로 이동) //
-               if(boardNumber == null) return PutFavoriteResponseDto.noExistedBoard();
-
                // description : 존재하는 회원인지 확인 //
                boolean hasUser = userRepository.existsByEmail(userEmail);
                if(!hasUser) return PutFavoriteResponseDto.noExistedUser();
 
                // description : 존재하는 게시물인지 확인 //
-               boolean hasBoard = boardRepository.existsByBoardNumber(boardNumber);
-               if(!hasBoard) return PutFavoriteResponseDto.noExistedBoard();
+               BoardEntity boardEntity = boardRepository.findByBoardNumber(boardNumber);
+               if(boardEntity == null) return PutFavoriteResponseDto.noExistedBoard();
 
                // description : 해당 유저가 해당 게시물에 좋아요 했는지 확인 //
                boolean isFavorite = favoriteRepository.existsByUserEmailAndBoardNumber(userEmail, boardNumber);
@@ -247,9 +282,18 @@ public class BoardServiceImplement implements BoardService {
                FavoriteEntity favoriteEntity = new FavoriteEntity(boardNumber, userEmail);
 
                // description : 이미 좋아요 했을 때(true) //
-               if(isFavorite) favoriteRepository.delete(favoriteEntity);
+               if(isFavorite) {
+                    favoriteRepository.delete(favoriteEntity);
+                    boardEntity.decreaseFavoriteCount();
+               }
                // description : 아직 좋아요 하지 않았을 때(false) //
-               else favoriteRepository.save(favoriteEntity);
+               else {
+                    favoriteRepository.save(favoriteEntity);
+                    boardEntity.increaseFavoriteCount();
+               }
+
+               // description : 데이터베이스 저장 //
+               boardRepository.save(boardEntity);
                
           } catch (Exception exception) {
                exception.printStackTrace();
@@ -264,11 +308,6 @@ public class BoardServiceImplement implements BoardService {
           String userEmail = dto.getUserEmail();
 
           try {
-
-               // description : boardNumber 가 null 인지 확인 //
-               // todo : (추후 controller 로 이동) //
-               if(boardNumber == null) return PatchBoardResponseDto.noExistedBoard();
-
                // description : 존재하는 회원인지 확인 //
                boolean hasUser = userRepository.existsByEmail(userEmail);
                if(!hasUser) return PatchBoardResponseDto.noExistedUser();
@@ -298,13 +337,6 @@ public class BoardServiceImplement implements BoardService {
      @Override
      public ResponseEntity<? super DeleteBoardResponseDto> deleteBoard(Integer boardNumber, String email) {
           try {
-
-               // todo : 추후 controller 로 이동 //
-               if(boardNumber == null) return DeleteBoardResponseDto.noExistedBoard();
-
-               // todo : 추후 controller 로 이동 //
-               if(email == null) return DeleteBoardResponseDto.noExistedUser();
-
                // description : 존재하는 회원인지 확인
                boolean hasUser = userRepository.existsByEmail(email);
                if(!hasUser) return DeleteBoardResponseDto.noExistedUser();

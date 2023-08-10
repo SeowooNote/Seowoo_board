@@ -4,12 +4,13 @@ import org.springframework.http.ResponseEntity;
 
 import com.seowoo.board.dto.request.user.PatchUserNicknameRequestDto;
 import com.seowoo.board.dto.request.user.PatchUserProfileRequestDto;
+import com.seowoo.board.dto.response.user.GetUserResponseDto;
 import com.seowoo.board.dto.response.user.PatchUserNicknameResponseDto;
 import com.seowoo.board.dto.response.user.PatchUserProfileResponseDto;
 
 public interface UserService {
      // method : 유저 정보 불러오기 메서드
-     ResponseEntity<?> getUser(String email);
+     ResponseEntity<? super GetUserResponseDto> getUser(String email);
 
      // method : 로그인 유저 정보 불러오기 메서드
      ResponseEntity<?> getSignInUser();

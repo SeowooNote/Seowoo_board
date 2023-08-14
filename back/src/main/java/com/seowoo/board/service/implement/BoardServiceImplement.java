@@ -133,12 +133,6 @@ public class BoardServiceImplement implements BoardService {
                // description : 검색어 로그 저장 //
                SearchLogEntity searchLogEntity = new SearchLogEntity(searchWord, relationWord);
                searchLogRepository.save(searchLogEntity);
-               // description : 첫번째 검색이 아닐 경우 (relationWord 가 null 이 아님) //
-               if(relationWord != null) {
-                    searchLogEntity = new SearchLogEntity(relationWord, searchWord);
-                    searchLogRepository.save(searchLogEntity);
-               }
-          
                
           } catch (Exception exception) {
                exception.printStackTrace();

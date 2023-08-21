@@ -4,6 +4,8 @@ public interface ResponseMessage {
      // public static final String SUCCESS = "Success";
      String SUCCESS = "Success";
 
+     String VALIDATE_FAIL = "Validate Fail";
+
      String EXISTED_EMAIL  = "Existed Email";
      String EXISTED_NICKNAME = "Existed Nickname";
      String EXISTED_TELNUMBER = "Existed Tel Number";

@@ -4,6 +4,8 @@ public interface ResponseCode {
      // public static final String SUCCESS = "Success";
      String SUCCESS = "SU";
 
+     String VALIDATE_FAIL = "VF";
+
      String EXISTED_EMAIL  = "EE";
      String EXISTED_NICKNAME = "EN";
      String EXISTED_TELNUMBER = "ET";

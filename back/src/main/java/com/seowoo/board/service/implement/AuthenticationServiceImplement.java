@@ -2,8 +2,9 @@ package com.seowoo.board.service.implement;
 
 import java.util.UUID;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.seowoo.board.dto.request.authentication.SignInRequestDto;
@@ -12,6 +13,7 @@ import com.seowoo.board.dto.response.ResponseDto;
 import com.seowoo.board.dto.response.authentication.SignInResponseDto;
 import com.seowoo.board.dto.response.authentication.SignUpResponseDto;
 import com.seowoo.board.entity.UserEntity;
+import com.seowoo.board.provider.JwtProvider;
 import com.seowoo.board.repository.UserRepository;
 import com.seowoo.board.service.AuthenticationService;
 
@@ -21,6 +23,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class AuthenticationServiceImplement implements AuthenticationService {
      private final UserRepository userRepository;
+     private final JwtProvider jwtProvider;
+
+     private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
      @Override
      // method : 로그인 메서드 //
@@ -36,12 +41,13 @@ public class AuthenticationServiceImplement implements AuthenticationService {
                // description : 존재하지 않는 email 확인 //
                if(userEntity == null) return SignInResponseDto.signInDataMismatch();
           
-               // description : 비밀번호 일치여부 확인 //               
-               boolean equalPassword = userEntity.getPassword().equals(password);
+               // description : 비밀번호 일치여부 확인 //
+               String encodedPassword = userEntity.getPassword();
+               boolean equalPassword = passwordEncoder.matches(password, encodedPassword);
                if(!equalPassword) return SignInResponseDto.signInDataMismatch();
 
-               // todo : Security 적용 후 변경 //
-               token = UUID.randomUUID().toString();
+               // description: JWT 생성 //
+               token = jwtProvider.create(email);
 
           } catch (Exception exception) {
                exception.printStackTrace();
@@ -56,6 +62,7 @@ public class AuthenticationServiceImplement implements AuthenticationService {
      public ResponseEntity<? super SignUpResponseDto> signUp(SignUpRequestDto dto) {
 
           String email = dto.getEmail();
+          String password = dto.getPassword();
           String nickname = dto.getNickname();
           String telNumber = dto.getTelNumber();
 
@@ -72,6 +79,12 @@ public class AuthenticationServiceImplement implements AuthenticationService {
                // description : 전화번호 중복 확인 //
                boolean hasTelNumber = userRepository.existsByTelNumber(telNumber);
                if(hasTelNumber) return SignUpResponseDto.existedTelNumber();
+
+               // description: 비밀번호 암호화 //
+               password = passwordEncoder.encode(password);
+
+               // description: dto의 password 변경 //
+               dto.setPassword(password);
 
                // description : Entity 생성 //
                UserEntity userEntity = new UserEntity(dto);

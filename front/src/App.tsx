@@ -1,5 +1,6 @@
 // Router
 import { Routes, Route, useLocation } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 
 // layouts import / src : 절대경로
 import Header from 'src/layouts/Header';
@@ -26,6 +27,10 @@ import { AUTHENTICATION_PATH, BOARD_NUMBER_PATH_VARIABLE, BOARD_PATH, DETAIL_PAT
 import './App.css';
 import axios from 'axios';
 import { useEffect } from 'react';
+import { useUserStore } from './stores';
+import { getSignInUserRequest } from './apis';
+import { GetLoginUserResponseDto } from './interfaces/response/user';
+import ResponseDto from './interfaces/response/response.dto';
 
 // 메인화면 - path: '/' / component : <Main />
 // 로그인 / 회원가입 - path: '/authentication' / component : <Authentication />
@@ -39,20 +44,27 @@ function App() {
   //              state             //
   // description : 현재 페이지 url 상태
   const { pathname } = useLocation();
-  // useLocation() : Hooks 함수 / 현재 어디 위치에 있는지 알 수 있음
+  // description : 유저 스토어 상태 //
+  const { user, setUser } = useUserStore();
+  // description : Cookie 상태 //
+  const [cookies, setCookie] = useCookies();
 
   // function //
+  const getSignInUserResponseHandler = (result: GetLoginUserResponseDto | ResponseDto) => {
+    const { code } = result;
+    if (code === 'NU') alert('토큰 정보가 잘못됐습니다.');
+    if (code === 'DE') alert('데이터베이스 에러입니다.');
+    if (code !== 'SU') return;
+
+    setUser({...result as GetLoginUserResponseDto});
+  }
 
   // effect //
   useEffect(() => {
-    axios.get("http://localhost:4040")
-    .then((response) => {
-      console.log(response.data);
-    })
-    .catch((error) => {
-      console.log(error.message);
-    })
-  }, []);
+    const accessToken = cookies.accessToken;
+    console.log(accessToken);
+    if (!user && accessToken) getSignInUserRequest(accessToken).then(getSignInUserResponseHandler);
+  }, [pathname]);
 
   // render //
   return (

@@ -1,6 +1,10 @@
 import axios from 'axios';
-
-import { PostBoardRequestDto, SignInRequestDto, SignUpRequestDto } from "src/interfaces/requests";
+import { SignInRequestDto, SignUpRequestDto } from 'src/interfaces/requests/authentication';
+import { PostBoardRequestDto } from 'src/interfaces/requests/board';
+import { SignInResponseDto } from 'src/interfaces/response/authentication';
+import SignUpResponseDto from 'src/interfaces/response/authentication/sign-up.response.dto';
+import ResponseDto from 'src/interfaces/response/response.dto';
+import { GetLoginUserResponseDto, GetUserResponseDto } from 'src/interfaces/response/user';
 
 const API_DOMAIN = 'http://localhost:4040/api/v1';
 
@@ -28,24 +32,40 @@ const POST_BOARD_URL = () => `${API_DOMAIN}/board`;
 const GET_USER_URL = (email: string) => `${API_DOMAIN}/user/${email}`;
 const GET_USER_BOARD_LIST_URL = (email: string) => `${API_DOMAIN}/board/user-list/${email}`;
 
-const PATCH_USER_NICKNAME_URL = (email: string) => `${API_DOMAIN}/user/${email}/nickname`;
-const PATCH_USER_PROFILE_URL = (email: string) => `${API_DOMAIN}/user/${email}/profile`;
+const PATCH_USER_NICKNAME_URL = () => `${API_DOMAIN}/user/nickname`;
+const PATCH_USER_PROFILE_URL = () => `${API_DOMAIN}/user/profile`;
 
 const GET_SIGN_IN_USER_URL = () => `${API_DOMAIN}/user`;
 const POST_FILE = () => `${API_DOMAIN}/file/upload`;
 
 export const signUpRequest = async (data: SignUpRequestDto) => {
-     const result = await axios.post(SIGN_UP_URL(), data).then((response) => {
-          return response;
-     }).catch((error) => null);
+     const result = 
+     await axios.post(SIGN_UP_URL(), data)
+     .then((response) => {
+       const responseBody: SignUpResponseDto = response.data;
+       const { code } = responseBody;
+       return code;
+     })
+     .catch((error) => {
+       const responseBody: ResponseDto = error.response.data;
+       const { code } = responseBody;
+       return code;
+     });
 
      return result;
 }
 
 export const signInRequest = async (data: SignInRequestDto) => {
-     const result = await axios.post(SIGN_IN_URL(), data).then((response) => {
-          return response;
-     }).catch((error) => null);
+     const result = 
+     await axios.post(SIGN_IN_URL(), data)
+     .then((response) => {
+       const responseBody: SignInResponseDto = response.data;
+       return responseBody;
+     })
+     .catch((error) => {
+       const responseBody: ResponseDto = error.response.data;
+       return responseBody;
+     });
 
      return result;
 }
@@ -148,9 +168,14 @@ export const deleteBoardRequest = async (boardNumber: number | string) => {
 }
 
 export const getUserRequest = async (email: string) => {
-     const result = await axios.get(GET_USER_URL(email)).then((response) => {
-          return response;
-     }).catch((error) => null);
+     const result = await axios.get(GET_USER_URL(email))
+     .then((response) => {
+          const responseBody: GetUserResponseDto = response.data;
+          return responseBody;
+     }).catch((error) => {
+          const responseBody: ResponseDto = error.response.data;
+          return responseBody;
+     });
 
      return result;
 }
@@ -163,10 +188,16 @@ export const getUserBoardListRequest = async (email: string) => {
      return result;
 }
 
-export const getSignInUserRequest = async () => {
-     const result = await axios.get(GET_SIGN_IN_USER_URL()).then((response) => {
-          return response;
-     }).catch((error) => null);
+export const getSignInUserRequest = async (token: string) => {
+     const headers = { headers: { 'Authorization': `Bearer ${token}` } };
+     const result = await axios.get(GET_SIGN_IN_USER_URL(), headers)
+     .then((response) => {
+          const responseBody: GetLoginUserResponseDto = response.data;
+          return responseBody;
+     }).catch((error) => {
+          const responseBody: ResponseDto = error.response.data;
+          return responseBody;
+     });
 
      return result;
 }
@@ -187,16 +218,16 @@ export const postBoardRequest = async (data: PostBoardRequestDto) => {
      return result;
 }
 
-export const patchUserNicknameRequest = async (email: string, data: any) => {
-     const result = await axios.patch(PATCH_USER_NICKNAME_URL(email), data).then((response) => {
+export const patchUserNicknameRequest = async (data: any) => {
+     const result = await axios.patch(PATCH_USER_NICKNAME_URL(), data).then((response) => {
           return response;
      }).catch((error) => null);
 
      return result;
 }
 
-export const patchUserProfileRequest = async (email: string, data: any) => {
-     const result = await axios.get(PATCH_USER_PROFILE_URL(email), data).then((response) => {
+export const patchUserProfileRequest = async (data: any) => {
+     const result = await axios.get(PATCH_USER_PROFILE_URL(), data).then((response) => {
           return response;
      }).catch((error) => null);
 

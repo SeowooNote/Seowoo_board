@@ -1,12 +1,12 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { useCookies } from 'react-cookie';
 
 import { useBoardWriteStore, useUserStore } from 'src/stores';
-import { AUTHENTICATION_PATH, BOARD_DETAIL_PATH, BOARD_UPDATE_PATH, BOARD_WRITE_PATH, MAIN_PATH, SEARCH_PATH, USER_PAGE_PATH, WRITE_PATH } from 'src/constants';
+import { AUTHENTICATION_PATH, BOARD_UPDATE_PATH, BOARD_WRITE_PATH, MAIN_PATH, SEARCH_PATH, USER_PAGE_PATH } from 'src/constants';
 
 import './style.css';
-import { PatchBoardRequestDto, PostBoardRequestDto } from 'src/interfaces/requests';
+import { PatchBoardRequestDto, PostBoardRequestDto } from 'src/interfaces/request';
 
 
 //           component           //
@@ -20,6 +20,8 @@ export default function Header() {
   const { user, setUser } = useUserStore();
   // description : 게시물 작성 데이터 상태 //
   const { boardTitle, boardContent, resetBoard } = useBoardWriteStore();
+  // description : Cookie 상태 //
+  const [cookies, setCookie] = useCookies();
   // description : 검색 아이콘 클릭 상태 //
   const [serachState, setSerachState] = useState<boolean>(false);
   // description : 로그인 상태 //
@@ -74,6 +76,7 @@ export default function Header() {
   }
   // description : 로그아웃 버튼 클릭 이벤트 //
   const onSignOutButtonClickHandler = () => {
+    setCookie('accessToken', '', { expires: new Date(), path: MAIN_PATH });
     setLogin(false);
     setUser(null);
     navigator(MAIN_PATH);
@@ -87,13 +90,6 @@ export default function Header() {
         contents: boardContent,
         imageUrl: ''
       }
-
-      axios.post('url', data).then((response) => {
-        resetBoard();
-        navigator(MAIN_PATH);
-      }).catch((error) => {
-
-      });
     } 
     else {
       
@@ -105,12 +101,6 @@ export default function Header() {
         imageUrl: ''
       }
 
-      axios.patch('url', data).then((response) => {
-        resetBoard();
-        navigator(BOARD_DETAIL_PATH(1));
-      }).catch((error) => {
-
-      })
     }
     
   }

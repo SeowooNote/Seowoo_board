@@ -1,6 +1,7 @@
 package com.seowoo.board.entity;
 
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -35,8 +36,8 @@ public class BoardEntity {
      private String writerEmail;
 
      public BoardEntity(String writerEmail, PostBoardRequestDto dto) {
-          Date now = new Date();
-          SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+          Date now = Date.from(Instant.now());
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
           String writeDatetime = simpleDateFormat.format(now);
 
           this.title = dto.getTitle();

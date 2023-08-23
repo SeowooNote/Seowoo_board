@@ -17,12 +17,10 @@ export default function Header() {
   //                state        //
   // description : url 경로 상태 //
   const { pathname } = useLocation();
-  // description : PathVariable 상태 //
-  const {boardNumber, searchWord, userEmail} = useParams();
   // description : 로그인 유저 정보 상태 //
   const { user, setUser } = useUserStore();
   // description : 게시물 작성 데이터 상태 //
-  const { boardTitle, boardContent, boardImage, resetBoard } = useBoardWriteStore();
+  const { boardNumber, boardTitle, boardContent, boardImage, resetBoard } = useBoardWriteStore();
   // description : Cookie 상태 //
   const [cookies, setCookie] = useCookies();
   // description : 검색 아이콘 클릭 상태 //
@@ -133,6 +131,7 @@ export default function Header() {
     if (pathname === BOARD_WRITE_PATH()) 
       postBoardRequest(data, token).then(postBoardResponseHandler);
     else {
+      console.log(boardNumber);
       if (!boardNumber) return;
       patchBoardRequest(boardNumber, data, token).then(patchBoardResponseHandler);
     }

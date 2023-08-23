@@ -2,16 +2,18 @@ import { useState , useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-import { CurrentListResponseDTO, Top3ListResponseDto } from 'src/interfaces/response';
+
 import { usePagination } from 'src/hooks';
 import Top3ListItem from 'src/components/Top3ListItem';
 import BoardListItem from 'src/components/BoardListItem';
 import Pagination from 'src/components/Pagination';
-import { currentBoardListMock, popularWordListMock, top3ListMock } from 'src/mocks';
 import { COUNT_BY_PAGE, SEARCH_PATH } from 'src/constants';
 
 import './style.css';
-import { error } from 'console';
+import { getPopularListRequest } from 'src/apis';
+import { GetPopularListResponseDto } from 'src/interfaces/response/search';
+import ResponseDto from 'src/interfaces/response/response.dto';
+import { BoardListResponseDto } from 'src/interfaces/response/board';
 
 
 //           component            //
@@ -31,7 +33,7 @@ export default function Main() {
 
     // state //
     // description : 인기 게시물 리스트 상태 //
-    const [top3List, setTop3List] = useState<Top3ListResponseDto[]>([]);
+    const [top3List, setTop3List] = useState<BoardListResponseDto[]>([]);
 
     // function //
 
@@ -41,13 +43,7 @@ export default function Main() {
 
     //                        effect                      //
     // description : 첫 시작 시 인기 게시물 데이터 불러오기  //
-    useEffect(() => {
-      axios.get('url').then((response) => {
-        setTop3List(response.data);
-      }).catch((error) => {
-        setTop3List(top3ListMock);
-      });
-    }, []);
+    useEffect(() => {}, []);
 
     // render //
     return(
@@ -74,11 +70,20 @@ export default function Main() {
     // description : 페이지네이션 관련 상태 및 함수 //
     const { totalPage, currentPage, currentSection, onPageClickHandler, onNextClickHandler, onPreviousClickHandler, changeSection } = usePagination();
     // description : 최신 게시물 리스트 상태 //
-    const [currentList, setCurrentList] = useState<CurrentListResponseDTO[]>([]);
+    const [currentList, setCurrentList] = useState<BoardListResponseDto[]>([]);
     // description : 인기 검색어 리스트 상태 //
     const [popularList, setPopularList] = useState<string[]>([]);
 
     // function //
+    // description : 인기 검색어 불러오기 응답 처리 함수 //
+    const getPopularListResponseHandler = (responseBody: GetPopularListResponseDto | ResponseDto) => {
+      const { code } = responseBody;
+      if (code === 'DE') alert('데이터베이스 에러입니다.');
+      if (code !== 'SU') return;
+
+      const { popularList } = responseBody as GetPopularListResponseDto;
+      setPopularList(popularList);
+    }
 
     //            event handler           //
     // description : 인기 검색어 클릭 이벤트 //
@@ -91,11 +96,7 @@ export default function Main() {
     //                     effect                       //
     // description : 첫 시작 시 인기 검색어 리스트 불러오기 //
     useEffect(() => {
-      axios.get('url').then((response) => {
-        setPopularList(response.data);
-      }).catch((error) => {
-        setPopularList(popularWordListMock);
-      });
+      getPopularListRequest().then(getPopularListResponseHandler);
     }, []);
     // description : 현재 섹션이 바뀔 때마다 페이지 리스트 변경 및 최신 게시물 불러오기 //
     useEffect(() => {
@@ -103,7 +104,7 @@ export default function Main() {
         changeSection(response.data.length, COUNT_BY_PAGE);
         setCurrentList(response.data);
       }).catch((error) => {
-        setCurrentList(currentBoardListMock);
+        setCurrentList([]);
       });
     }, [currentSection]);
 

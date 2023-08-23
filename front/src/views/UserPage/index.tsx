@@ -1,7 +1,6 @@
 import {useRef, ChangeEvent, useState, useEffect} from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import { MyPageListResponseDto } from 'src/interfaces/response';
 import { usePagination } from 'src/hooks';
 import { useUserStore } from 'src/stores';
 import BoardListItem from 'src/components/BoardListItem';
@@ -10,8 +9,8 @@ import DefaultProfile from './asset/my_page_profile_default.png';
 import { getUserRequest } from 'src/apis';
 import { GetUserResponseDto } from 'src/interfaces/response/user';
 import ResponseDto from 'src/interfaces/response/response.dto';
-import { myPageBoardListMock } from 'src/mocks';
 import { AUTHENTICATION_PATH, BOARD_WRITE_PATH, COUNT_BY_PAGE, MAIN_PATH, USER_PAGE_PATH } from 'src/constants';
+import { BoardListResponseDto } from 'src/interfaces/response/board';
 
 import './style.css';
 
@@ -132,11 +131,11 @@ export default function UserPage() {
     // description : 페이지네이션과 관련된 상태 및 함수 //
     const { totalPage, currentPage, currentSection, onPreviousClickHandler, onNextClickHandler, onPageClickHandler, changeSection } = usePagination();
     // description : 전체 게시물 리스트 상태 //
-    const [myPageBoardList, setMyPageBoardList] = useState<MyPageListResponseDto[]>([]);
+    const [myPageBoardList, setMyPageBoardList] = useState<BoardListResponseDto[]>([]);
     // description : 전체 게시물 갯수 상태 //
     const [boardCount, setBoardCount] = useState<number>(0);
     // description : 현재 페이지에서 보여줄 게시물 리스트 상태 //
-    const [pageBoardList, setPageBoardList] = useState<MyPageListResponseDto[]>([]);    
+    const [pageBoardList, setPageBoardList] = useState<BoardListResponseDto[]>([]);    
 
     //                      function                    //
     // description : 현재 페이지의 게시물 리스트 분류 함수 //
@@ -144,7 +143,7 @@ export default function UserPage() {
       const startIndex = COUNT_BY_PAGE * (currentPage - 1);
       const lastIndex = boardCount > COUNT_BY_PAGE * currentPage ?
         COUNT_BY_PAGE * currentPage : boardCount;
-      const pageBoardList = myPageBoardListMock.slice(startIndex, lastIndex);
+      const pageBoardList = myPageBoardList.slice(startIndex, lastIndex);
 
       setPageBoardList(pageBoardList);
     }
@@ -170,17 +169,17 @@ export default function UserPage() {
     //                      effect                      //
     // description : 화면 첫 로드시 게시물 리스트 불러오기 //
     useEffect(() => {
-      setMyPageBoardList(myPageBoardListMock);
-      setBoardCount(myPageBoardListMock.length);
+      // setMyPageBoardList(myPageBoardListMock);
+      // setBoardCount(myPageBoardListMock.length);
     }, []);
     // description : 현재 페이지가 바뀔때 마다 마이페이지 게시물 분류하기 //
     useEffect(() => {
-      getPageBoardList(myPageBoardListMock.length);
+      // getPageBoardList(myPageBoardListMock.length);
     }, [currentPage])
 
     // description : 현재 섹션이 바뀔때 마다 페이지 리스트 변경 //
     useEffect(() => {
-      changeSection(myPageBoardListMock.length, COUNT_BY_PAGE);
+      // changeSection(myPageBoardListMock.length, COUNT_BY_PAGE);
     }, [currentSection]);
 
     // render //

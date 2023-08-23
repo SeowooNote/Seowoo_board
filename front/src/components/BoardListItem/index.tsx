@@ -1,13 +1,16 @@
 import { useNavigate } from 'react-router-dom';
 
-import { CurrentListResponseDTO, MyPageListResponseDto, SearchListResponseDto } from 'src/interfaces/response';
+import { BoardListResponseDto } from 'src/interfaces/response/board';
+
+import defaultProfileImage from 'src/assets/default-profile-image.png';
 
 import './style.css';
 import { BOARD_DETAIL_PATH } from 'src/constants';
+import { dateFormat } from 'src/utils';
 
 
 interface Props{
-  item: CurrentListResponseDTO | SearchListResponseDto | MyPageListResponseDto;
+  item: BoardListResponseDto;
 }
 
 
@@ -17,8 +20,8 @@ export default function BoardListItem({ item }: Props) {
   
   //                      state                    //
   // description : 속성으로 받아오는 게시물 관련 상태 //
-  const { boardNumber, boardTitle, boardContent, boardImage } = item;
-  const { writerProfileImage, writerNickName, writeDate } = item;
+  const { boardNumber, title, contents, imageUrl } = item;
+  const { writerProfileImage, writerNickname, writeDatetime } = item;
   const { commentCount, favoriteCount, viewCount } = item;
 
   //                    function                   //
@@ -42,21 +45,21 @@ export default function BoardListItem({ item }: Props) {
         <div className="board-list-item-writer">
             <div className="board-list-item-profile">
               <div className="board-list-item-profile-image"
-                   style={{ backgroundImage: `url(${writerProfileImage})` }}>
+                   style={{ backgroundImage: `url(${writerProfileImage ? writerProfileImage : defaultProfileImage})` }}>
               </div>
             </div>
             <div className="board-list-item-writer-right">
-              <div className="board-list-item-writer-nickname">{ writerNickName }</div>
-              <div className="board-list-item-write-date">{ writeDate }</div>
+              <div className="board-list-item-writer-nickname">{ writerNickname  }</div>
+              <div className="board-list-item-write-date">{ dateFormat(writeDatetime) }</div>
             </div>
         </div>
-        <div className="board-list-item-title">{ boardTitle }</div>
-        <div className="board-list-item-content">{ boardContent }</div>
+        <div className="board-list-item-title">{ title  }</div>
+        <div className="board-list-item-content">{ contents  }</div>
         <div className="board-list-item-count">{ `댓글 ${commentCount} · 좋아요 ${favoriteCount} · 조회수 ${viewCount}` }</div>
       </div>
       <div className='board-list-right'>
         <div className="board-list-item-board-image"
-             style={{ backgroundImage: `url(${boardImage})` }}></div>
+             style={{ backgroundImage: `url(${imageUrl})` }}></div>
       </div>
     </div>
   );

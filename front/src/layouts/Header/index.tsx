@@ -1,12 +1,13 @@
 import { ChangeEvent, useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 
 import { useBoardWriteStore, useUserStore } from 'src/stores';
-import { AUTHENTICATION_PATH, BOARD_UPDATE_PATH, BOARD_WRITE_PATH, MAIN_PATH, SEARCH_PATH, USER_PAGE_PATH } from 'src/constants';
+import { AUTHENTICATION_PATH, BOARD_DETAIL_PATH, BOARD_UPDATE_PATH, BOARD_WRITE_PATH, MAIN_PATH, SEARCH_PATH, USER_PAGE_PATH } from 'src/constants';
 
 import './style.css';
-import { PatchBoardRequestDto, PostBoardRequestDto } from 'src/interfaces/request';
+import { patchBoardRequest, postBoardRequest, uploadFileRequest } from 'src/apis';
+import { PatchBoardRequestDto, PostBoardRequestDto } from 'src/interfaces/request/board';
 
 
 //           component           //
@@ -16,10 +17,12 @@ export default function Header() {
   //                state        //
   // description : url 경로 상태 //
   const { pathname } = useLocation();
+  // description : PathVariable 상태 //
+  const {boardNumber, searchWord, userEmail} = useParams();
   // description : 로그인 유저 정보 상태 //
   const { user, setUser } = useUserStore();
   // description : 게시물 작성 데이터 상태 //
-  const { boardTitle, boardContent, resetBoard } = useBoardWriteStore();
+  const { boardTitle, boardContent, boardImage, resetBoard } = useBoardWriteStore();
   // description : Cookie 상태 //
   const [cookies, setCookie] = useCookies();
   // description : 검색 아이콘 클릭 상태 //
@@ -32,7 +35,42 @@ export default function Header() {
   //                     function                   //
   // description : 페이지 이동을 위한 네비게이트 함수 //
   const navigator = useNavigate();
+  // description : 파일 업로드 함수 //
+  const fileUpload = async () => {
+    if (boardImage === null) return null;
 
+    const data = new FormData();
+    data.append('file', boardImage);
+
+    const imageUrl = await uploadFileRequest(data);
+    return imageUrl;
+  }
+  // description : 게시물 작성 요청 함수 //
+  const postBoardResponseHandler = (code: string) => {
+    if (code === 'NE') alert('존재하지 않는 회원입니다.');
+    if (code === 'VF') alert('필수 데이터를 입력하지 않았습니다.');
+    if (code === 'DE') alert('데이터베이스 에러입니다.');
+    if (code !== 'SU') return;
+
+    resetBoard();
+
+    if (!user) return;
+    navigator(USER_PAGE_PATH(user.email));
+  }
+  // description : 게시물 수정 요청 함수 //
+  const patchBoardResponseHandler = (code: string) => {
+    if (code === 'NE') alert('존재하지 않는 회원입니다.');
+    if (code === 'NB') alert('존재하지 않는 게시물입니다.');
+    if (code === 'NP') alert('권한이 없습니다.');
+    if (code === 'VF') alert('필수 데이터를 입력하지 않았습니다.');
+    if (code === 'DE') alert('데이터베이스 에러입니다.');
+    if (code !== 'SU') return;
+
+    resetBoard();
+
+    if (!boardNumber) return;
+    navigator(BOARD_DETAIL_PATH(boardNumber));
+  }
   // description : search 버튼 출력 여부 //
   const showSearch = !pathname.includes(USER_PAGE_PATH('')) && pathname !== BOARD_WRITE_PATH() && !pathname.includes(BOARD_UPDATE_PATH(''));
   // description : 현재 페이지가 인증 화면인지 여부 //
@@ -82,25 +120,21 @@ export default function Header() {
     navigator(MAIN_PATH);
   }
   // description : 업로드 버튼 클릭 이벤트 //
-  const onUploadButtonClickHandler = () => {
-    if (pathname === BOARD_WRITE_PATH()){
+  const onUploadButtonClickHandler = async () => {
+    const imageUrl = await fileUpload();
 
-      const data: PostBoardRequestDto = {
-        title: boardTitle,
-        contents: boardContent,
-        imageUrl: ''
-      }
+    const data: PostBoardRequestDto | PatchBoardRequestDto = {
+      title: boardTitle,
+      contents: boardContent,
+      imageUrl
     } 
-    else {
-      
-      // todo : boardNumber 받아오기
-      const data:PatchBoardRequestDto = {
-        boardNumber: 1,
-        title: boardTitle,
-        contents: boardContent,
-        imageUrl: ''
-      }
+    const token = cookies.accessToken;
 
+    if (pathname === BOARD_WRITE_PATH()) 
+      postBoardRequest(data, token).then(postBoardResponseHandler);
+    else {
+      if (!boardNumber) return;
+      patchBoardRequest(boardNumber, data, token).then(patchBoardResponseHandler);
     }
     
   }

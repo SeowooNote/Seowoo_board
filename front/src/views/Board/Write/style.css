@@ -17,6 +17,7 @@
 
 .board-write-title-input{
      display: block;
+     width: 100%;
 
      border: none;
      outline: none;

@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.seowoo.board.dto.request.board.PatchBoardRequestDto;
 import com.seowoo.board.dto.request.board.PostBoardRequestDto;
 import com.seowoo.board.dto.request.board.PostCommentRequestDto;
-import com.seowoo.board.dto.request.board.PutFavoriteRequestDto;
 import com.seowoo.board.dto.response.board.DeleteBoardResponseDto;
 import com.seowoo.board.dto.response.board.GetBoardResponseDto;
 import com.seowoo.board.dto.response.board.GetCommentListResponseDto;

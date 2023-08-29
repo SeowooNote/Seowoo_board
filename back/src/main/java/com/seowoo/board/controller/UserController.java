@@ -59,11 +59,11 @@ public class UserController {
      }
 
      // API : 유저 프로필 이미지 수정 메서드 //
-     @PatchMapping("/{email}")
+     @PatchMapping("/profile")
      public ResponseEntity<? super PatchUserProfileResponseDto> patchUserProfile(
           @AuthenticationPrincipal String email,
           @RequestBody @Valid PatchUserProfileRequestDto requestBody
-     ) {  
+     ) {
           ResponseEntity<? super PatchUserProfileResponseDto> response = userService.patchUserProfile(email, requestBody);
           return response;
      }

@@ -6,7 +6,7 @@ import { useCookies } from 'react-cookie';
 import { useDaumPostcodePopup, Address } from 'react-daum-postcode';
 import axios from 'axios';
 
-import { SignInRequestDto, SignUpRequestDto } from 'src/interfaces/requests/authentication';
+import { SignInRequestDto, SignUpRequestDto } from 'src/interfaces/request/authentication';
 import { useUserStore } from 'src/stores';
 import InputBox from 'src/components/InputBox';
 import { signInMock, userMock } from 'src/mocks';
@@ -64,9 +64,8 @@ export default function Authentication() {
       const now = new Date().getTime();
       const expires = new Date(now + expiredTime * 1000);
 
-      setCookie("accessToken", token, { expires });
-
-      navigator("/");
+      setCookie('accessToken', token, { expires, path: MAIN_PATH });
+      navigator(MAIN_PATH);
     }
 
     //                  event handler                   //

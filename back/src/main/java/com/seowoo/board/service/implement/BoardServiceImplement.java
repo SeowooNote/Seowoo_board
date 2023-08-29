@@ -75,12 +75,13 @@ public class BoardServiceImplement implements BoardService {
      }
 
      @Override
-     public ResponseEntity<? super GetCurrentBoardResponseDto> getCurrentBoard() {
+     public ResponseEntity<? super GetCurrentBoardResponseDto> getCurrentBoard(Integer section) {
           List<BoardListResponseDto> boardList = null;
 
           try {
                // description : 최신 게시물 리스트 불러오기 //
-               List<BoardListResultSet> resultSets = boardRepository.getCurrentList();
+               Integer limit = (section - 1) * 50;
+               List<BoardListResultSet> resultSets = boardRepository.getCurrentList(limit);
                
                // description : 검색 결과를 ResponseDto 형태로 변환 //
                boardList = BoardListResponseDto.copyList(resultSets);

@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.seowoo'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 
 java {
 	sourceCompatibility = '17'
@@ -31,8 +31,4 @@ dependencies {
 	runtimeOnly 'com.mysql:mysql-connector-j:8.0.32'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-}
-
-tasks.named('test') {
-	useJUnitPlatform()
 }

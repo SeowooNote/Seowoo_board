@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, KeyboardEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 // 링크 주소 : https://www.npmjs.com/package/react-daum-postcode
@@ -24,7 +24,7 @@ import { getSignInUserRequest, signInRequest, signUpRequest } from 'src/apis';
 // description : 인증 화면 컴포넌트 //
 export default function Authentication() {
 
-  //                   state                   //
+  //            state          //
   // description : Cookie 상태 //
   const [cookies, setCookie] = useCookies();
   // description : 로그인 혹은 회원가입 뷰 상태 //
@@ -48,9 +48,9 @@ export default function Authentication() {
     // description : 로그인 Error 상태 //
     const [error, setError] = useState<boolean>(false);
     // description : 이메일 입력값 상태 //
-    const [email, setEmail] = useState<string>(signInMock.email);
+    const [email, setEmail] = useState<string>('');
     // description : 비밀번호 입력값 상태 //
-    const [password, setPassword] = useState<string>(signInMock.password);
+    const [password, setPassword] = useState<string>('');
 
     // function //
     const signInResponseHandler = (result: SignInResponseDto | ResponseDto) => {
@@ -68,9 +68,13 @@ export default function Authentication() {
       navigator(MAIN_PATH);
     }
 
-    //                  event handler                   //
-    
-    // description : 비밀번호 타입 변경 버튼 클릭 이벤트  //
+    //             event handler              //
+    // description : 비밀번호 input 키 다운 이벤트
+    const onPasswordKeyDownHandler = (event: KeyboardEvent<HTMLInputElement>) => {
+      if(event.key !== 'Enter')return;
+      onSignInButtonClickHandler();
+    }
+    // description : 비밀번호 타입 변경 버튼 클릭 이벤트   //
     const onPasswordIconClickHandler = () => {
       setShowPassword(!showPassword);
     }
@@ -101,7 +105,7 @@ export default function Authentication() {
           </div>
           <div className="authentication-card-top-input-container">
             <InputBox label='이메일 주소' type='text' placeholder='이메일 주소를 입력해주세요' error = {error} value={email} setValue={setEmail} />
-            <InputBox label='비밀번호' type={showPassword ? 'text' : 'password'} placeholder='비밀번호를 입력해주세요' icon={showPassword ? INPUT_ICON.ON : INPUT_ICON.OFF} buttonHandler={onPasswordIconClickHandler} error={error} value={password} setValue={setPassword} />
+            <InputBox label='비밀번호' type={showPassword ? 'text' : 'password'} placeholder='비밀번호를 입력해주세요' icon={showPassword ? INPUT_ICON.ON : INPUT_ICON.OFF} buttonHandler={onPasswordIconClickHandler} error={error} value={password} setValue={setPassword} keyDownHandler={onPasswordKeyDownHandler} />
           </div>
         </div>
         <div className="authentication-card-bottom">

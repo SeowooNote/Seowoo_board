@@ -1,4 +1,9 @@
-.main-top{padding: 5.555555vw 8.333333vw 2.777777vw;}
+.main-top{
+     padding: 80px 0px 40px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
 
 .main-top-text-container{
      display: flex;
@@ -18,7 +23,16 @@
      font-weight: 600;
 }
 
-.main-top-3-container{margin-top: 32px;}
+.main-top-3-container{
+     margin-top: 32px;
+
+     width: 1200px;
+
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+}
 
 .main-top-3-text{
      margin: 24px 0px;
@@ -32,6 +46,7 @@
 .main-top-3-list{
      display: flex;
      justify-content: space-between;
+     gap: 24px;
 }
 
 .main-bottom{

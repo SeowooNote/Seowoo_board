@@ -53,8 +53,12 @@ export default function BoardListItem({ item }: Props) {
               <div className="board-list-item-write-date">{ dateFormat(writeDatetime) }</div>
             </div>
         </div>
-        <div className="board-list-item-title">{ title  }</div>
-        <div className="board-list-item-content">{ contents  }</div>
+        <div className="board-list-item-title">
+          { title.length > 100 ? title.substring(0, 47) + '...' : title }  
+        </div>
+        <div className="board-list-item-content">
+          { contents.length > 50 ? contents.substring(0, 47) + '...' : contents }
+        </div>
         <div className="board-list-item-count">{ `댓글 ${commentCount} · 좋아요 ${favoriteCount} · 조회수 ${viewCount}` }</div>
       </div>
       <div className='board-list-right'>
